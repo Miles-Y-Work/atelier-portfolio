@@ -716,7 +716,7 @@ textarea {
 
 .project-feature-heading {
   position: relative;
-  margin-top: -76px;
+  margin-top: -112px;
   padding: 38px 48px 0;
   background: var(--feature-paper);
 }
@@ -1343,7 +1343,7 @@ a.project-recognition-item:focus-visible small {
 
   .project-feature-heading {
     width: calc(100% - 36px);
-    margin-top: -28px;
+    margin-top: -48px;
     padding: 27px 18px 0;
   }
 
