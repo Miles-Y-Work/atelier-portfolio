@@ -1,0 +1,56 @@
+{{ define "bodyClass" }}page-contact{{ end }}
+
+{{ define "main" }}
+  <section class="atmosphere-page contact-page" aria-labelledby="page-title">
+    <div class="page-background" aria-hidden="true">
+      {{ partial "media.html" (dict
+        "page" .
+        "src" .Params.backgroundImage
+        "alt" ""
+        "class" "background-image"
+        "loading" "eager"
+        "placeholder" "painting-hero"
+      ) }}
+    </div>
+    <div class="page-overlay page-overlay-strong" aria-hidden="true"></div>
+    <div class="site-shell atmosphere-content contact-content">
+      <h1 id="page-title" class="display-title">{{ .Title }}</h1>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="prose">{{ .Content }}</div>
+          <address>
+            <a href="mailto:{{ site.Params.contact.email }}">{{ site.Params.contact.email }}</a>
+            <a href="tel:{{ replaceRE `[^0-9+]` `` site.Params.contact.phone }}">{{ site.Params.contact.phone }}</a>
+          </address>
+          <div class="social-links" aria-label="社交媒体">
+            {{ with site.Params.social.facebook }}
+              <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v2H6v4h3v7h4v-7h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg>
+              </a>
+            {{ end }}
+            {{ with site.Params.social.instagram }}
+              <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.7" r="1" class="fill-dot"/></svg>
+              </a>
+            {{ end }}
+          </div>
+        </div>
+
+        <form class="contact-form" action="{{ site.Params.contact.formAction }}" method="post" data-contact-form>
+          <div class="form-row">
+            <label>First name <span aria-hidden="true">*</span><input type="text" name="first-name" autocomplete="given-name" required></label>
+            <label>Last name <span aria-hidden="true">*</span><input type="text" name="last-name" autocomplete="family-name" required></label>
+          </div>
+          <div class="form-row">
+            <label>Email <span aria-hidden="true">*</span><input type="email" name="email" autocomplete="email" required></label>
+            <label>Subject<input type="text" name="subject"></label>
+          </div>
+          <label>Leave us a message…<textarea name="message" rows="5"></textarea></label>
+          <button type="submit">Submit</button>
+          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+        </form>
+      </div>
+    </div>
+  </section>
+{{ end }}
+

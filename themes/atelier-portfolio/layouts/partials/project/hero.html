@@ -1,0 +1,25 @@
+{{- with .Params.heroImage -}}
+  {{- $focus := $.Params.heroFocus | default "center" -}}
+  {{- $alt := $.Params.heroAlt | default $.Title -}}
+  <figure class="project-hero">
+    <div class="project-hero-media">
+      {{ partial "media.html" (dict
+        "page" $
+        "src" .
+        "alt" $alt
+        "class" (printf "project-hero-image media-focus-%s" $focus)
+        "loading" "eager"
+        "sizes" "(max-width: 760px) 100vw, 1360px"
+        "placeholder" "painting-hero"
+      ) }}
+    </div>
+    {{- with $.Params.heroCaption -}}
+      <figcaption>
+        {{- with $.Params.heroCaptionUrl -}}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ end -}}
+        {{- $.Params.heroCaption -}}
+        {{- with $.Params.heroCaptionUrl -}}</a>{{ end -}}
+      </figcaption>
+    {{- end -}}
+  </figure>
+{{- end -}}
+

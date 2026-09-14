@@ -1,0 +1,33 @@
+{{ define "bodyClass" }}page-about{{ end }}
+
+{{ define "main" }}
+  <section class="atmosphere-page about-page" aria-labelledby="page-title">
+    <div class="page-background" aria-hidden="true">
+      {{ partial "media.html" (dict
+        "page" .
+        "src" .Params.backgroundImage
+        "alt" ""
+        "class" "background-image"
+        "loading" "eager"
+        "placeholder" "painting-hero"
+      ) }}
+    </div>
+    <div class="page-overlay" aria-hidden="true"></div>
+    <div class="site-shell atmosphere-content">
+      <h1 id="page-title" class="display-title">{{ .Title }}</h1>
+      <div class="about-grid">
+        <div class="portrait-frame">
+          {{ partial "media.html" (dict
+            "page" .
+            "src" .Params.portrait
+            "alt" (printf "%s 肖像" site.Params.artistName)
+            "class" "portrait-image"
+            "placeholder" "portrait-placeholder"
+          ) }}
+        </div>
+        <div class="about-copy prose">{{ .Content }}</div>
+      </div>
+    </div>
+  </section>
+{{ end }}
+

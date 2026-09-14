@@ -1,0 +1,11 @@
+<section class="project-perspective" aria-label="Author perspective">
+  {{- with .Params.pullquote -}}
+    <blockquote class="project-opening-quote">“{{ . }}”</blockquote>
+  {{- end -}}
+
+  <div class="project-perspective-body">
+    <div class="prose prose-feature">
+      {{ .Content }}
+    </div>
+  </div>
+</section>

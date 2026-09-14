@@ -1,0 +1,28 @@
+<header class="site-header" data-site-header>
+  <div class="site-shell header-inner">
+    <a class="site-mark" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Params.artistName }} 首页">
+      {{ site.Params.initials | default "YN" }}
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="sr-only">打开导航</span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="主导航" data-site-nav>
+      <ul>
+        {{- range site.Menus.main -}}
+          {{- $active := or ($.IsMenuCurrent "main" .) ($.HasMenuCurrent "main" .) -}}
+          {{- if and (not $active) $.Section -}}
+            {{- $active = eq $.Section .Identifier -}}
+          {{- end -}}
+          <li>
+            <a href="{{ .URL }}"{{ if $active }} class="is-active" aria-current="page"{{ end }}>{{ .Name }}</a>
+          </li>
+        {{- end -}}
+      </ul>
+    </nav>
+  </div>
+</header>
+

@@ -1,0 +1,21 @@
+{{- with .Params.recognition -}}
+  <section class="project-recognition" aria-label="Recognition and publication">
+    <div class="project-recognition-grid recognition-count-{{ len . }}">
+      {{- range . -}}
+        {{- if .url -}}
+          <a class="project-recognition-item" href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+            <span>{{ .label }}</span>
+            <strong>{{ .value }}</strong>
+            {{- with .detail }}<small>{{ . }}</small>{{ end -}}
+          </a>
+        {{- else -}}
+          <div class="project-recognition-item">
+            <span>{{ .label }}</span>
+            <strong>{{ .value }}</strong>
+            {{- with .detail }}<small>{{ . }}</small>{{ end -}}
+          </div>
+        {{- end -}}
+      {{- end -}}
+    </div>
+  </section>
+{{- end -}}

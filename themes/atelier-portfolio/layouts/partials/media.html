@@ -1,0 +1,33 @@
+{{- $page := .page -}}
+{{- $src := .src | default "" -}}
+{{- $alt := .alt | default "" -}}
+{{- $class := .class | default "" -}}
+{{- $loading := .loading | default "lazy" -}}
+{{- $placeholder := .placeholder | default "painting-a" -}}
+{{- $sizes := .sizes | default "100vw" -}}
+{{- if $src -}}
+  {{- with $page.Resources.GetMatch $src -}}
+    {{- $resource := . -}}
+    {{- $isProcessable := and (eq $resource.MediaType.MainType "image") (ne $resource.MediaType.SubType "svg") -}}
+    {{- if $isProcessable -}}
+      {{- $fallback := $resource.Process "webp q84" -}}
+      {{- if gt $resource.Width 1800 -}}
+        {{- $fallback = $resource.Resize "1800x webp q84" -}}
+      {{- end -}}
+      {{- $srcset := slice -}}
+      {{- range $width := slice 720 1200 1800 -}}
+        {{- if ge $resource.Width $width -}}
+          {{- $variant := $resource.Resize (printf "%dx webp q82" $width) -}}
+          {{- $srcset = $srcset | append (printf "%s %dw" $variant.RelPermalink $width) -}}
+        {{- end -}}
+      {{- end -}}
+      <img class="{{ $class }}" src="{{ $fallback.RelPermalink }}"{{ with $srcset }} srcset="{{ delimit . ", " }}" sizes="{{ $sizes }}"{{ end }} width="{{ $resource.Width }}" height="{{ $resource.Height }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async">
+    {{- else -}}
+      <img class="{{ $class }}" src="{{ $resource.RelPermalink }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async">
+    {{- end -}}
+  {{- else -}}
+    <img class="{{ $class }}" src="{{ $src | relURL }}" alt="{{ $alt }}" loading="{{ $loading }}" decoding="async">
+  {{- end -}}
+{{- else -}}
+  <div class="media-placeholder {{ $placeholder }} {{ $class }}" role="img" aria-label="{{ $alt }}占位图"></div>
+{{- end -}}

@@ -1,0 +1,17 @@
+{{- with .Params.gallery -}}
+  <div class="project-gallery">
+    {{- range $index, $image := . -}}
+      <figure class="gallery-item">
+        {{ partial "media.html" (dict
+          "page" $
+          "src" $image
+          "alt" (printf "%s image %d" $.Title (add $index 1))
+          "class" "gallery-image"
+          "sizes" "(max-width: 760px) 100vw, 50vw"
+          "placeholder" (printf "painting-%s" (cond (eq (mod $index 3) 0) "a" (cond (eq (mod $index 3) 1) "b" "c")))
+        ) }}
+      </figure>
+    {{- end -}}
+  </div>
+{{- end -}}
+

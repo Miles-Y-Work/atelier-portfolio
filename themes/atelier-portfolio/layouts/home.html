@@ -1,0 +1,22 @@
+{{ define "bodyClass" }}page-home{{ end }}
+
+{{ define "main" }}
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-media" aria-hidden="true">
+      {{ partial "media.html" (dict
+        "page" .
+        "src" .Params.heroImage
+        "alt" ""
+        "class" "hero-image"
+        "loading" "eager"
+        "placeholder" "painting-hero"
+      ) }}
+    </div>
+    <div class="hero-shade" aria-hidden="true"></div>
+    <div class="hero-content site-shell">
+      <p>{{ .Params.heroEyebrow | default site.Params.tagline }}</p>
+      <h1 id="hero-title">{{ .Params.heroTitle | default site.Params.artistName }}</h1>
+    </div>
+  </section>
+{{ end }}
+

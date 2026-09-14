@@ -1,0 +1,24 @@
+{{ define "bodyClass" }}page-project{{ end }}
+
+{{ define "main" }}
+  {{- $layout := .Params.projectLayout | default "editorial" -}}
+  <article class="project-page project-layout-{{ $layout }}" aria-labelledby="project-title">
+    {{- if eq $layout "feature" -}}
+      {{ partial "project/feature-hero.html" . }}
+      <div class="project-feature-frame site-shell">
+        {{ partial "project/recognition.html" . }}
+        {{ partial "project/perspective.html" . }}
+        {{ partial "project/gallery.html" . }}
+        {{ partial "project/navigation.html" . }}
+      </div>
+    {{- else -}}
+      {{ partial "project/hero.html" . }}
+      <div class="project-frame site-shell">
+        {{ partial "project/masthead.html" . }}
+        {{ partial "project/story.html" . }}
+        {{ partial "project/gallery.html" . }}
+        {{ partial "project/navigation.html" . }}
+      </div>
+    {{- end -}}
+  </article>
+{{ end }}

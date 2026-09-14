@@ -1,0 +1,12 @@
+<section class="project-story{{ with .Params.pullquote }} has-aside{{ end }}" aria-label="Project story">
+  {{- with .Params.pullquote -}}
+    <aside class="project-story-aside">
+      {{- with $.Params.asideLabel -}}<p>{{ . }}</p>{{- end -}}
+      <blockquote>{{ . }}</blockquote>
+    </aside>
+  {{- end -}}
+  <div class="project-story-copy prose prose-editorial">
+    {{ .Content }}
+  </div>
+</section>
+

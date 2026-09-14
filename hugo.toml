@@ -1,0 +1,39 @@
+baseURL = "/"
+languageCode = "zh-cn"
+title = "Mia Jin"
+theme = "atelier-portfolio"
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term", "RSS"]
+
+[params]
+  artistName = "Mia Jin"
+  initials = "Mia Jin"
+  tagline = "Writer · Speaker · Explorer"
+  description = "The personal portfolio of Mia Jin, a student, writer, speaker, and curious explorer."
+
+  [params.contact]
+    email = "hello@example.com"
+    phone = "+86 138 0000 0000"
+    formAction = ""
+
+  [params.social]
+    instagram = "https://www.instagram.com/"
+    facebook = "https://www.facebook.com/"
+
+[[menus.main]]
+  name = "Voices"
+  identifier = "selected-work"
+  pageRef = "/selected-work"
+  weight = 10
+
+[[menus.main]]
+  name = "About Me"
+  identifier = "about"
+  pageRef = "/about"
+  weight = 20
+
+[[menus.main]]
+  name = "Contact"
+  identifier = "contact"
+  pageRef = "/contact"
+  weight = 30

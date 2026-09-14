@@ -1,0 +1,35 @@
+<header class="project-feature-hero">
+  {{- with .Params.heroImage -}}
+    {{- $focus := $.Params.heroFocus | default "center" -}}
+    {{- $alt := $.Params.heroAlt | default $.Title -}}
+    <figure class="project-feature-visual">
+      {{ partial "media.html" (dict
+        "page" $
+        "src" .
+        "alt" $alt
+        "class" (printf "project-feature-image media-focus-%s" $focus)
+        "loading" "eager"
+        "sizes" "(max-width: 760px) 100vw, 1360px"
+        "placeholder" "painting-hero"
+      ) }}
+      {{- with $.Params.heroCaption -}}
+        <figcaption>
+          {{- with $.Params.heroCaptionUrl -}}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ end -}}
+          {{- $.Params.heroCaption -}}
+          {{- with $.Params.heroCaptionUrl -}}</a>{{ end -}}
+        </figcaption>
+      {{- end -}}
+    </figure>
+  {{- end -}}
+
+  <div class="project-feature-heading site-shell">
+    <p class="project-feature-kicker">{{ .Params.eyebrow | default (.Params.cardTitle | default "Featured work") }}</p>
+    <h1 id="project-title">{{ .Title }}</h1>
+    {{- if or .Params.authorLine .Params.dek -}}
+      <div class="project-feature-intro">
+        {{- with .Params.authorLine -}}<p class="project-feature-author">{{ . }}</p>{{- end -}}
+        {{- with .Params.dek -}}<p class="project-feature-dek">{{ . }}</p>{{- end -}}
+      </div>
+    {{- end -}}
+  </div>
+</header>
