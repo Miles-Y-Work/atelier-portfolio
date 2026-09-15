@@ -1,6 +1,6 @@
 # Atelier Portfolio — Hugo 艺术作品集模板
 
-这是一个参考极简艺术家作品集风格制作的 Hugo 主题。它包含首页、作品列表、作品详情、个人简介、联系表单和移动端导航；图片和文字都放在内容目录里，后续更换学生资料时不需要修改模板代码。
+这是一个参考极简艺术家作品集风格制作的 Hugo 主题。它包含首页、Voices、Passion、多种详情页、个人简介、联系表单和移动端导航；图片和文字都放在内容目录里，后续更换学生资料时不需要修改模板代码。
 
 ## 本地预览
 
@@ -53,6 +53,11 @@ content/
         ├── cover.jpg
         ├── work-01.jpg
         └── work-02.jpg
+└── passion/
+    └── chemistry/
+        ├── index.md           # 多图 Passion Story
+        ├── chemistry-portrait.jpg
+        └── chemistry-experiment.jpg
 ```
 
 示例：
@@ -131,6 +136,30 @@ url = "https://example.com/competition"
 ```
 
 `recognition` 可以添加任意数量的资料卡；填写 `url` 后整张卡片会成为官网链接。正文 Markdown 会自动进入作者视角区域。
+
+### Passion Story 字段
+
+`content/passion/` 用于与 Voices 同级的兴趣主题。每个页面可以用结构化章节组合竖幅首图、大幅过程图、图文并排内容和收束图片：
+
+```toml
+heroImage = "portrait.jpg"
+eyebrow = "Passion · Chemistry"
+question = "How does chemistry become medicine?"
+intro = "页面导语"
+
+[[facts]]
+label = "Course"
+value = "Chemistry of Medicine"
+
+[[chapters]]
+title = "Chemistry became tangible"
+layout = "wide" # wide / split / closing
+image = "experiment.jpg"
+body = "章节正文"
+pullquote = "需要强调的一句话"
+```
+
+图片同样由 Hugo 自动生成 WebP 与响应式尺寸。继续添加 Chemistry、Music、Tennis 等目录时，会自动出现在 Passion 列表页。
 
 ## 联系表单
 

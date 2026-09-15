@@ -331,6 +331,12 @@ textarea {
   overflow: hidden;
 }
 
+.work-card:only-child {
+  width: min(760px, 100%);
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
 .work-card-media {
   aspect-ratio: 1.86 / 1;
   overflow: hidden;
@@ -908,6 +914,278 @@ a.project-recognition-item:focus-visible small {
   outline-color: var(--feature-ink);
 }
 
+/* Passion story: reusable for image-led interests and activities */
+.passion-story {
+  --passion-paper: #f1eee6;
+  --passion-ink: #1b1916;
+  --passion-muted: #6d675f;
+  --passion-line: rgba(27, 25, 22, 0.22);
+  color: var(--passion-ink);
+  background: var(--passion-paper);
+}
+
+.passion-hero {
+  padding: 52px 0 88px;
+}
+
+.passion-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.72fr);
+  gap: 88px;
+  align-items: center;
+}
+
+.passion-hero-copy {
+  padding: 30px 0;
+}
+
+.passion-eyebrow {
+  margin: 0 0 24px;
+  color: #8b4d3d;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.passion-hero-copy h1 {
+  max-width: 660px;
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(54px, 6.3vw, 82px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.passion-question {
+  max-width: 560px;
+  margin: 38px 0 0;
+  color: #3f3a34;
+  font-family: var(--serif);
+  font-size: clamp(23px, 2.45vw, 31px);
+  letter-spacing: -0.025em;
+  line-height: 1.3;
+}
+
+.passion-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 36px;
+  margin: 58px 0 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--passion-line);
+}
+
+.passion-facts div {
+  min-width: 0;
+}
+
+.passion-facts dt,
+.passion-facts dd {
+  margin: 0;
+}
+
+.passion-facts dt {
+  color: var(--passion-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.passion-facts dd {
+  margin-top: 6px;
+  font-family: var(--serif);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+.passion-hero-visual,
+.passion-chapter-visual {
+  margin: 0;
+  overflow: hidden;
+  background: #dedbd4;
+}
+
+.passion-hero-visual {
+  aspect-ratio: 2 / 3;
+}
+
+.passion-hero-image,
+.passion-chapter-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.passion-hero-image {
+  object-position: 50% 48%;
+}
+
+.passion-introduction {
+  padding: 94px 0 104px;
+  border-top: 1px solid var(--passion-line);
+}
+
+.passion-introduction > div {
+  max-width: 970px;
+  margin: 0 auto;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2.7vw, 34px);
+  letter-spacing: -0.025em;
+  line-height: 1.42;
+}
+
+.passion-introduction p {
+  margin: 0;
+}
+
+.passion-story-flow {
+  padding-bottom: 108px;
+}
+
+.passion-chapter {
+  margin-bottom: 124px;
+}
+
+.passion-chapter:last-child {
+  margin-bottom: 0;
+}
+
+.passion-chapter-visual figcaption {
+  margin-top: 9px;
+  color: var(--passion-muted);
+  font-size: 10px;
+  letter-spacing: 0.035em;
+  text-align: right;
+}
+
+.passion-chapter--wide .passion-chapter-visual {
+  aspect-ratio: 16 / 9;
+}
+
+.passion-chapter-copy {
+  display: grid;
+  grid-template-columns: 0.62fr 1.38fr;
+  gap: 72px;
+  margin-top: 44px;
+}
+
+.passion-chapter-copy h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(31px, 3.2vw, 43px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+}
+
+.prose-passion {
+  color: #3a352f;
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.prose-passion p {
+  margin: 0 0 22px;
+}
+
+.prose-passion > :last-child {
+  margin-bottom: 0;
+}
+
+.passion-chapter-text blockquote {
+  margin: 42px 0 0;
+  padding-top: 36px;
+  border-top: 1px solid var(--passion-line);
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 39px);
+  letter-spacing: -0.035em;
+  line-height: 1.16;
+}
+
+.passion-chapter--split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.passion-chapter--split .passion-chapter-visual {
+  aspect-ratio: 3 / 2;
+}
+
+.passion-chapter--split .passion-chapter-copy {
+  display: block;
+  margin-top: 0;
+}
+
+.passion-chapter--split .passion-chapter-copy h2 {
+  margin-bottom: 30px;
+}
+
+.passion-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin: 36px 0 0;
+  padding-top: 25px;
+  border-top: 1px solid var(--passion-line);
+}
+
+.passion-metric strong {
+  flex: 0 0 auto;
+  font-family: var(--serif);
+  font-size: clamp(42px, 4.5vw, 58px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1;
+}
+
+.passion-metric span {
+  max-width: 150px;
+  color: var(--passion-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.passion-chapter--closing {
+  display: flex;
+  flex-direction: column;
+}
+
+.passion-chapter--closing .passion-chapter-copy {
+  order: 1;
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+
+.passion-chapter--closing .passion-chapter-visual {
+  order: 2;
+  aspect-ratio: 3 / 2;
+}
+
+.passion-story-navigation {
+  padding-bottom: 88px;
+}
+
+.passion-story .project-nav {
+  margin-top: 0;
+  border-color: var(--passion-line);
+}
+
+.passion-story .project-nav span {
+  color: var(--passion-muted);
+}
+
+.passion-story .project-nav a:focus-visible {
+  outline-color: var(--passion-ink);
+}
+
 /* About and contact */
 .atmosphere-page {
   position: relative;
@@ -1439,6 +1717,124 @@ a.project-recognition-item:focus-visible small {
 
   .project-layout-feature .project-nav {
     margin-top: 74px;
+  }
+
+  .passion-hero {
+    padding: 0 0 64px;
+  }
+
+  .passion-hero-grid {
+    width: 100%;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .passion-hero-copy {
+    width: calc(100% - 36px);
+    margin-inline: auto;
+    padding: 42px 0 0;
+  }
+
+  .passion-hero-copy h1 {
+    font-size: clamp(45px, 14vw, 58px);
+    line-height: 0.99;
+  }
+
+  .passion-question {
+    margin-top: 28px;
+    font-size: 23px;
+  }
+
+  .passion-facts {
+    gap: 18px;
+    margin-top: 40px;
+  }
+
+  .passion-facts dd {
+    font-size: 14px;
+  }
+
+  .passion-hero-visual {
+    order: -1;
+    aspect-ratio: 4 / 5;
+  }
+
+  .passion-introduction {
+    padding: 62px 0 72px;
+  }
+
+  .passion-introduction > div {
+    font-size: 24px;
+    line-height: 1.42;
+  }
+
+  .passion-story-flow {
+    padding-bottom: 76px;
+  }
+
+  .passion-chapter {
+    margin-bottom: 84px;
+  }
+
+  .passion-chapter--wide .passion-chapter-visual {
+    aspect-ratio: 4 / 3;
+  }
+
+  .passion-chapter-copy,
+  .passion-chapter--split {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .passion-chapter-copy {
+    margin-top: 32px;
+  }
+
+  .passion-chapter-copy h2 {
+    font-size: 33px;
+  }
+
+  .prose-passion {
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .passion-chapter-text blockquote {
+    margin-top: 32px;
+    padding-top: 28px;
+    font-size: 29px;
+  }
+
+  .passion-chapter--split {
+    display: grid;
+  }
+
+  .passion-chapter--split .passion-chapter-copy {
+    margin-top: 0;
+  }
+
+  .passion-chapter--split .passion-chapter-copy h2 {
+    margin-bottom: 24px;
+  }
+
+  .passion-metric {
+    align-items: flex-end;
+  }
+
+  .passion-metric strong {
+    font-size: 46px;
+  }
+
+  .passion-chapter--closing .passion-chapter-copy {
+    margin-bottom: 32px;
+  }
+
+  .passion-chapter--closing .passion-chapter-visual {
+    aspect-ratio: 3 / 2;
+  }
+
+  .passion-story-navigation {
+    padding-bottom: 64px;
   }
 
   .atmosphere-content,

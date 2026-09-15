@@ -1,0 +1,32 @@
+<header class="passion-hero">
+  <div class="passion-hero-grid site-shell">
+    <div class="passion-hero-copy">
+      {{- with .Params.eyebrow -}}<p class="passion-eyebrow">{{ . }}</p>{{- end -}}
+      <h1 id="passion-title">{{ .Title }}</h1>
+      {{- with .Params.question -}}<p class="passion-question">“{{ . }}”</p>{{- end -}}
+
+      {{- with .Params.facts -}}
+        <dl class="passion-facts">
+          {{- range . -}}
+            <div>
+              <dt>{{ .label }}</dt>
+              <dd>{{ .value }}</dd>
+            </div>
+          {{- end -}}
+        </dl>
+      {{- end -}}
+    </div>
+
+    <figure class="passion-hero-visual">
+      {{ partial "media.html" (dict
+        "page" .
+        "src" .Params.heroImage
+        "alt" (.Params.heroAlt | default .Title)
+        "class" "passion-hero-image"
+        "loading" "eager"
+        "sizes" "(max-width: 760px) 100vw, 46vw"
+        "placeholder" "painting-hero"
+      ) }}
+    </figure>
+  </div>
+</header>

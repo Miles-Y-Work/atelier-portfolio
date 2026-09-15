@@ -1,0 +1,35 @@
+{{- with .Params.chapters -}}
+  <div class="passion-story-flow site-shell">
+    {{- range . -}}
+      {{- $chapter := . -}}
+      {{- $layout := .layout | default "wide" -}}
+      <section class="passion-chapter passion-chapter--{{ $layout }}">
+        <figure class="passion-chapter-visual">
+          {{ partial "media.html" (dict
+            "page" $
+            "src" .image
+            "alt" (.alt | default .title)
+            "class" "passion-chapter-image"
+            "sizes" "(max-width: 760px) 100vw, 1144px"
+            "placeholder" "painting-b"
+          ) }}
+          {{- with .caption -}}<figcaption>{{ . }}</figcaption>{{- end -}}
+        </figure>
+
+        <div class="passion-chapter-copy">
+          <h2>{{ .title }}</h2>
+          <div class="passion-chapter-text">
+            {{- with .body -}}<div class="prose-passion">{{ . | markdownify }}</div>{{- end -}}
+            {{- with .pullquote -}}<blockquote>{{ . }}</blockquote>{{- end -}}
+            {{- with .metricValue -}}
+              <p class="passion-metric">
+                <strong>{{ . }}</strong>
+                {{- with $chapter.metricLabel -}}<span>{{ . }}</span>{{- end -}}
+              </p>
+            {{- end -}}
+          </div>
+        </div>
+      </section>
+    {{- end -}}
+  </div>
+{{- end -}}

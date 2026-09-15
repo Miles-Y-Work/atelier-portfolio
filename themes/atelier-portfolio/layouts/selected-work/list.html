@@ -1,31 +1,5 @@
 {{ define "bodyClass" }}page-work{{ end }}
 
 {{ define "main" }}
-  <section class="work-index site-shell" aria-labelledby="page-title">
-    <h1 id="page-title" class="display-title">{{ .Title }}</h1>
-
-    <div class="work-grid">
-      {{- range .Pages.ByWeight -}}
-        <a class="work-card" href="{{ .RelPermalink }}">
-          <figure>
-            <div class="work-card-media">
-              {{ partial "media.html" (dict
-                "page" .
-                "src" .Params.cover
-                "alt" (.Params.cardTitle | default .Title)
-                "class" "work-cover"
-                "placeholder" (cond (eq (mod .Weight 20) 0) "painting-b" "painting-a")
-              ) }}
-            </div>
-            <figcaption>
-              <span>{{ .Params.cardTitle | default .Title }}</span>
-              {{ with .Params.award }}<small>{{ . }}</small>{{ end }}
-            </figcaption>
-          </figure>
-        </a>
-      {{- else -}}
-        <p class="empty-state">还没有添加作品。</p>
-      {{- end -}}
-    </div>
-  </section>
+  {{ partial "collection/index.html" . }}
 {{ end }}

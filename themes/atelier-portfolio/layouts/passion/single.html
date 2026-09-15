@@ -1,0 +1,21 @@
+{{ define "bodyClass" }}page-passion{{ end }}
+
+{{ define "main" }}
+  <article class="passion-story" aria-labelledby="passion-title">
+    {{ partial "passion/hero.html" . }}
+
+    {{- with .Params.intro -}}
+      <section class="passion-introduction site-shell" aria-label="Introduction">
+        <div>{{ . | markdownify }}</div>
+      </section>
+    {{- end -}}
+
+    {{ partial "passion/chapters.html" . }}
+
+    {{- if or .PrevInSection .NextInSection -}}
+      <div class="passion-story-navigation site-shell">
+        {{ partial "project/navigation.html" . }}
+      </div>
+    {{- end -}}
+  </article>
+{{ end }}
