@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title description">
+  <title id="title">Reading &amp; Reflections</title>
+  <desc id="description">An open book drawn on a warm paper background with the words Reading and Reflections.</desc>
+  <rect width="1200" height="900" fill="#e8dfd1"/>
+  <rect x="36" y="36" width="1128" height="828" fill="none" stroke="#857260" stroke-width="2"/>
+  <text x="92" y="130" fill="#7b6759" font-family="Georgia, serif" font-size="28" letter-spacing="7">MIA JIN / PASSION</text>
+  <text x="88" y="320" fill="#2d2925" font-family="Georgia, serif" font-size="142" letter-spacing="-8">Reading</text>
+  <text x="92" y="430" fill="#2d2925" font-family="Georgia, serif" font-size="85" letter-spacing="-5">&amp; Reflections</text>
+  <path d="M123 575 C258 535 390 548 561 610 L561 771 C397 711 252 697 123 735 Z" fill="#f8f4eb" stroke="#806e5e" stroke-width="4"/>
+  <path d="M561 610 C730 548 858 535 1077 575 L1077 735 C874 696 722 711 561 771 Z" fill="#f8f4eb" stroke="#806e5e" stroke-width="4"/>
+  <path d="M561 610 L561 771" fill="none" stroke="#806e5e" stroke-width="4"/>
+  <path d="M159 610 C289 583 410 596 526 636 M159 646 C290 623 412 635 526 671 M159 681 C290 660 413 671 526 705 M598 636 C746 586 892 584 1037 610 M598 671 C745 624 893 620 1037 646 M598 705 C744 660 891 656 1037 681" fill="none" stroke="#c9b9a4" stroke-width="3"/>
+</svg>

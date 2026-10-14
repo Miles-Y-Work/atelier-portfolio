@@ -1,0 +1,19 @@
+{{ $pages := .Parent.Pages.ByWeight }}
+{{ $position := -1 }}
+{{ range $index, $page := $pages }}
+  {{ if eq $page.RelPermalink $.RelPermalink }}{{ $position = $index }}{{ end }}
+{{ end }}
+{{ if ge $position 0 }}
+  <nav class="project-nav" aria-label="Passion navigation">
+    {{ if gt $position 0 }}
+      {{ with index $pages (sub $position 1) }}
+        <a href="{{ .RelPermalink }}"><span>Previous Interest</span><strong>{{ .Params.cardTitle | default .Title }}</strong></a>
+      {{ end }}
+    {{ end }}
+    {{ if lt (add $position 1) (len $pages) }}
+      {{ with index $pages (add $position 1) }}
+        <a href="{{ .RelPermalink }}"><span>Next Interest</span><strong>{{ .Params.cardTitle | default .Title }}</strong></a>
+      {{ end }}
+    {{ end }}
+  </nav>
+{{ end }}

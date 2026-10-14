@@ -1,0 +1,106 @@
+<article class="violin-story" aria-labelledby="violin-title">
+  <header class="violin-opening site-shell">
+    <p class="violin-kicker">Passion / Music</p>
+    <h1 id="violin-title">Violin</h1>
+    <p class="violin-subtitle">A Long-Term Passion · Solo &amp; Ensemble</p>
+    <figure class="violin-hero-crop">
+      {{ partial "media.html" (dict
+        "page" .
+        "src" .Params.heroImage
+        "alt" (.Params.heroAlt | default .Title)
+        "class" "violin-hero-source"
+        "loading" "eager"
+        "sizes" "(max-width: 760px) 100vw, 1144px"
+      ) }}
+    </figure>
+  </header>
+
+  {{ with .Params.intro }}
+    <section class="violin-intro site-shell" aria-labelledby="violin-intro-title">
+      <p class="violin-section-label" id="violin-intro-title">The story so far</p>
+      <div class="violin-intro-text">{{ . | markdownify }}</div>
+    </section>
+  {{ end }}
+
+  <section class="violin-timeline site-shell" aria-labelledby="violin-timeline-title">
+    <div class="violin-timeline-heading">
+      <p class="violin-section-label">On stage &amp; beyond</p>
+      <h2 id="violin-timeline-title">A musical timeline</h2>
+      <p>Performances, competitions and milestones, year by year.</p>
+    </div>
+
+    {{ $lastYear := "" }}
+    {{ range $index, $event := .Params.timelineEvents }}
+      {{ if ne $event.year $lastYear }}
+        <h3 class="violin-year">{{ $event.year }}</h3>
+        {{ $lastYear = $event.year }}
+      {{ end }}
+      <div class="violin-event{{ if not $event.photos }} violin-event--plain{{ end }}">
+        <div class="violin-event-media">
+          {{ if $event.photos }}
+            <button class="violin-photo-button" type="button" data-gallery-open="violin-gallery-{{ $index }}" aria-label="View {{ len $event.photos }} {{ if eq (len $event.photos) 1 }}photo{{ else }}photos{{ end }} from {{ $event.title }}">
+              <span class="violin-photo-stack" aria-hidden="true">
+                {{ range first 3 $event.photos }}
+                  <span class="violin-photo-layer">
+                    {{ partial "media.html" (dict "page" $ "src" .src "alt" "" "class" "violin-stack-image" "sizes" "(max-width: 760px) 75vw, 360px") }}
+                  </span>
+                {{ end }}
+              </span>
+              <span class="violin-photo-cta">View gallery <span aria-hidden="true">↗</span> <small>{{ len $event.photos }} {{ if eq (len $event.photos) 1 }}photo{{ else }}photos{{ end }}</small></span>
+            </button>
+          {{ else }}
+            <div class="violin-text-mark" aria-hidden="true"><span>{{ $event.mark | default "·" }}</span><small>{{ $event.markLabel | default $event.kind }}</small></div>
+          {{ end }}
+        </div>
+        <div class="violin-event-copy">
+          <p class="violin-event-kind">{{ $event.kind }} · {{ $event.year }}</p>
+          <h4>{{ $event.title }}</h4>
+          <p class="violin-event-detail">{{ $event.detail }}</p>
+          {{ with $event.note }}<p class="violin-event-note">{{ . }}</p>{{ end }}
+        </div>
+      </div>
+
+      {{ with $event.photos }}
+        <dialog class="violin-gallery" id="violin-gallery-{{ $index }}" aria-label="Photos from {{ $event.title }} — {{ $event.detail }}">
+          <div class="violin-gallery-panel">
+            <div class="violin-gallery-topline">
+              <div>
+                <p class="violin-event-kind">{{ $event.year }} · {{ $event.kind }}</p>
+                <h2>{{ $event.title }}</h2>
+              </div>
+              <button class="violin-gallery-close" type="button" data-gallery-close aria-label="Close gallery">×</button>
+            </div>
+            <div class="violin-gallery-stage">
+              {{ range $photoIndex, $photo := . }}
+                <figure class="violin-gallery-slide" data-gallery-slide{{ if gt $photoIndex 0 }} hidden{{ end }}>
+                  {{ partial "media.html" (dict "page" $ "src" $photo.src "alt" $photo.alt "class" "violin-gallery-image" "sizes" "(max-width: 760px) 100vw, 1000px") }}
+                  <figcaption>{{ $photo.alt }}</figcaption>
+                </figure>
+              {{ end }}
+            </div>
+            <div class="violin-gallery-bottomline">
+              <div class="violin-gallery-controls">
+                <button type="button" data-gallery-prev aria-label="Previous photo">←</button>
+                <span data-gallery-count>1 / {{ len . }}</span>
+                <button type="button" data-gallery-next aria-label="Next photo">→</button>
+              </div>
+              <div class="violin-gallery-thumbs" aria-label="Choose a photo">
+                {{ range $photoIndex, $photo := . }}
+                  <button type="button" data-gallery-thumb="{{ $photoIndex }}" aria-label="Show photo {{ add $photoIndex 1 }}"{{ if eq $photoIndex 0 }} aria-current="true"{{ end }}>
+                    {{ partial "media.html" (dict "page" $ "src" $photo.src "alt" "" "class" "violin-gallery-thumb-image" "sizes" "80px") }}
+                  </button>
+                {{ end }}
+              </div>
+            </div>
+          </div>
+        </dialog>
+      {{ end }}
+    {{ end }}
+  </section>
+
+  {{ if or .PrevInSection .NextInSection }}
+    <div class="passion-story-navigation site-shell">
+      {{ partial "passion/navigation.html" . }}
+    </div>
+  {{ end }}
+</article>

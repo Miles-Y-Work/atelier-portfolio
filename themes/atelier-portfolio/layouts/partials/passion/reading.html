@@ -1,0 +1,46 @@
+<article class="reading-story" aria-labelledby="reading-title">
+  <header class="reading-opening site-shell">
+    <div class="reading-opening-copy">
+      <p class="passion-special-kicker">Passion / Books</p>
+      <h1 id="reading-title">Reading <em>&amp;</em><br>Reflections</h1>
+      <p>Growing Through Stories</p>
+    </div>
+    <figure class="reading-hero">
+      {{ partial "media.html" (dict "page" . "src" .Params.cover "alt" .Params.coverAlt "class" "reading-hero-image" "loading" "eager") }}
+    </figure>
+  </header>
+
+  <section class="reading-introduction site-shell" aria-labelledby="reading-intro-title">
+    <p class="passion-special-kicker" id="reading-intro-title">Why I read</p>
+    <div class="reading-introduction-text">{{ .Params.intro | markdownify }}</div>
+  </section>
+
+  <section class="reading-reflections site-shell" aria-labelledby="reading-reflections-title">
+    <div class="reading-section-heading">
+      <p class="passion-special-kicker">Great Expectations · Charles Dickens</p>
+      <h2 id="reading-reflections-title">My Reflections</h2>
+      <p>Two passages on ambition, identity, and the people who shape us.</p>
+    </div>
+    <div class="reading-essay-list">
+      {{ range .Params.reflections }}
+        <details class="reading-essay">
+          <summary>
+            <span class="reading-essay-label">{{ .label }}</span>
+            <span class="reading-essay-title">{{ .title }}</span>
+            <span class="reading-essay-toggle" aria-hidden="true">+</span>
+          </summary>
+          <div class="reading-essay-content">
+            <div class="reading-essay-prose">{{ .body | markdownify }}</div>
+            {{ with $.Resources.GetMatch .file }}
+              <a class="reading-download" href="{{ .RelPermalink }}" download>Download original essay <span aria-hidden="true">↗</span></a>
+            {{ end }}
+          </div>
+        </details>
+      {{ end }}
+    </div>
+  </section>
+
+  {{ if or .PrevInSection .NextInSection }}
+    <div class="passion-story-navigation site-shell">{{ partial "passion/navigation.html" . }}</div>
+  {{ end }}
+</article>

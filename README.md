@@ -159,7 +159,27 @@ body = "章节正文"
 pullquote = "需要强调的一句话"
 ```
 
-图片同样由 Hugo 自动生成 WebP 与响应式尺寸。继续添加 Chemistry、Music、Tennis 等目录时，会自动出现在 Passion 列表页。
+图片同样由 Hugo 自动生成 WebP 与响应式尺寸。Passion 列表页现包含 Violin、Tennis、Chemistry、Reading；继续添加兴趣主题目录时，也会自动显示。
+
+小提琴页采用时间线版式。在页面 Front Matter 中设置 `timeline = true`，并添加 `[[timelineEvents]]`。每项可填写年份、类别、标题、曲目或成绩，以及照片；照片会叠放在时间线中，点击后打开该活动的相册。没有照片的项目也能只展示文字。
+
+```toml
+timeline = true
+intro = "页面介绍"
+
+[[timelineEvents]]
+year = "2025"
+kind = "Performance"
+title = "活动名称"
+detail = "曲目或成绩"
+note = "补充说明"
+photos = [
+  { src = "stage-1.jpg", alt = "演出现场" },
+  { src = "stage-2.jpg", alt = "合奏现场" },
+]
+```
+
+网球页从 `results` 读取比赛记录，从 `gallery` 读取球场照片。阅读页从 `reflections` 读取文章正文与原始 `.docx` 文件；文章可在网页中展开阅读，也能下载原文档。
 
 ## 联系表单
 
