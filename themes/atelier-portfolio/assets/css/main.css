@@ -416,6 +416,14 @@ textarea {
   object-fit: cover;
 }
 
+.project-layout-debate .project-hero-media {
+  height: clamp(520px, 62vw, 760px);
+}
+
+.project-layout-debate .project-hero-image {
+  object-position: 50% 42%;
+}
+
 .media-focus-top {
   object-position: 50% 24%;
 }
@@ -1520,6 +1528,10 @@ a.project-recognition-item:focus-visible small {
   .project-hero-media {
     height: auto;
     aspect-ratio: 4 / 3;
+  }
+
+  .project-layout-debate .project-hero-media {
+    height: auto;
   }
 
   .project-hero figcaption {

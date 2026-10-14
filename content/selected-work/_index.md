@@ -1,4 +1,4 @@
 +++
 title = "VOICES"
-description = "Writing, public speaking, and debate by Mia Jin."
+description = "Writing, public speaking, debate, and community stories by Mia Jin."
 +++
