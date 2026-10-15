@@ -24,7 +24,7 @@
           {{- end -}}
           <li class="nav-item"{{ if $children }} data-nav-group{{ end }}>
             <div class="nav-item-heading">
-              <a href="{{ .URL }}"{{ if or $active $current }} class="is-active"{{ end }}{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}</a>
+              <a href="{{ .URL }}"{{ if or $active $current }} class="is-active"{{ end }}{{ if $current }} aria-current="page"{{ else if $active }} aria-current="location"{{ end }}>{{ .Name }}</a>
               {{- if $children -}}
                 <button class="submenu-toggle" type="button" aria-expanded="false" aria-controls="submenu-{{ .Identifier }}" aria-label="Toggle {{ .Name }} submenu" data-submenu-toggle>
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="m3 4.5 3 3 3-3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
