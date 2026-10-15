@@ -3,21 +3,75 @@
   const nav = document.querySelector('[data-site-nav]');
 
   if (toggle && nav) {
+    const label = toggle.querySelector('[data-nav-label]');
+    const groups = [...nav.querySelectorAll('[data-nav-group]')];
+    const mobile = window.matchMedia('(max-width: 760px)');
+
+    const setSubmenu = (group, open) => {
+      group.querySelector('[data-submenu-toggle]').setAttribute('aria-expanded', String(open));
+      group.querySelector('.nav-submenu').hidden = !open;
+    };
+    const closeSubmenus = (except) => {
+      groups.forEach((group) => {
+        if (group !== except) setSubmenu(group, false);
+      });
+    };
     const closeMenu = () => {
       toggle.setAttribute('aria-expanded', 'false');
+      if (label) label.textContent = 'Open navigation';
       document.body.classList.remove('nav-open');
+      closeSubmenus();
     };
 
     toggle.addEventListener('click', () => {
       const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      closeMenu();
       toggle.setAttribute('aria-expanded', String(!isOpen));
+      if (label) label.textContent = isOpen ? 'Open navigation' : 'Close navigation';
       document.body.classList.toggle('nav-open', !isOpen);
     });
 
-    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-    window.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeMenu();
+    groups.forEach((group) => {
+      const button = group.querySelector('[data-submenu-toggle]');
+      button.addEventListener('click', () => {
+        const open = button.getAttribute('aria-expanded') !== 'true';
+        closeSubmenus(group);
+        setSubmenu(group, open);
+      });
+      group.addEventListener('focusout', (event) => {
+        if (!group.contains(event.relatedTarget)) setSubmenu(group, false);
+      });
     });
+
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('click', (event) => {
+      if (event.target === nav || (!nav.contains(event.target) && !toggle.contains(event.target))) closeMenu();
+    });
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        const openGroup = groups.find((group) => group.querySelector('[data-submenu-toggle]').getAttribute('aria-expanded') === 'true');
+        if (openGroup) {
+          event.preventDefault();
+          setSubmenu(openGroup, false);
+          openGroup.querySelector('[data-submenu-toggle]').focus();
+        } else if (document.body.classList.contains('nav-open')) {
+          closeMenu();
+          toggle.focus();
+        }
+      }
+      if (event.key === 'Tab' && mobile.matches && document.body.classList.contains('nav-open')) {
+        const links = [...nav.querySelectorAll('a, button')].filter((element) => element.getClientRects().length);
+        const last = links[links.length - 1];
+        if (event.shiftKey && document.activeElement === toggle) {
+          event.preventDefault();
+          last?.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          toggle.focus();
+        }
+      }
+    });
+    mobile.addEventListener('change', closeMenu);
   }
 
   const form = document.querySelector('[data-contact-form]');

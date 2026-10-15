@@ -21,6 +21,12 @@ disableKinds = ["taxonomy", "term", "RSS"]
     facebook = "https://www.facebook.com/"
 
 [[menus.main]]
+  name = "Home"
+  identifier = "home"
+  pageRef = "/"
+  weight = 5
+
+[[menus.main]]
   name = "Voices"
   identifier = "selected-work"
   pageRef = "/selected-work"

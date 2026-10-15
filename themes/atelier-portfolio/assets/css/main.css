@@ -116,6 +116,8 @@ textarea {
 
 .site-mark:focus-visible,
 .site-nav a:focus-visible,
+.site-nav button:focus-visible,
+.nav-toggle:focus-visible,
 .social-links a:focus-visible,
 .text-link:focus-visible,
 .project-nav a:focus-visible {
@@ -123,7 +125,7 @@ textarea {
   outline-offset: 6px;
 }
 
-.site-nav ul {
+.site-nav > ul {
   display: flex;
   align-items: center;
   gap: 34px;
@@ -144,6 +146,79 @@ textarea {
 .site-nav a:hover,
 .site-nav a.is-active {
   color: #aaa9a5;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-item-heading {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.submenu-toggle {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.submenu-toggle:hover,
+.submenu-toggle[aria-expanded="true"] {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.submenu-toggle svg {
+  transition: transform 180ms ease;
+}
+
+.submenu-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+.site-nav .nav-submenu {
+  position: absolute;
+  top: 100%;
+  left: -16px;
+  z-index: 1;
+  display: grid;
+  gap: 2px;
+  min-width: 210px;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #33332f;
+  background: #111110;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.22);
+  list-style: none;
+}
+
+.site-nav .nav-submenu[hidden] {
+  display: none;
+}
+
+.site-nav .nav-submenu a {
+  padding: 13px 12px;
+  font-size: 14px;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.site-nav .nav-submenu a:hover,
+.site-nav .nav-submenu a.is-active {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.site-nav .nav-submenu a:focus-visible {
+  outline-offset: -2px;
 }
 
 .nav-toggle {
@@ -1447,8 +1522,10 @@ a.project-recognition-item:focus-visible small {
     position: fixed;
     inset: 0;
     z-index: 21;
-    display: grid;
-    place-items: center;
+    display: block;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: calc(var(--header-height) + 24px) 32px 40px;
     background: rgba(5, 5, 5, 0.98);
     opacity: 0;
     visibility: hidden;
@@ -1460,9 +1537,38 @@ a.project-recognition-item:focus-visible small {
     visibility: visible;
   }
 
-  .site-nav ul {
+  .site-nav > ul {
     flex-direction: column;
-    gap: 20px;
+    align-items: stretch;
+    gap: 16px;
+    width: min(100%, 380px);
+    margin-inline: auto;
+  }
+
+  .nav-item-heading {
+    justify-content: space-between;
+  }
+
+  .submenu-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  .site-nav .nav-submenu {
+    position: static;
+    min-width: 0;
+    margin: 10px 0 4px;
+    padding: 4px 0 4px 16px;
+    border: 0;
+    border-left: 1px solid #45453f;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .site-nav .nav-submenu a {
+    padding: 12px;
+    font-family: var(--sans);
+    font-size: 17px;
   }
 
   .site-nav a {
