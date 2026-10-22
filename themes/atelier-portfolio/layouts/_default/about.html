@@ -2,18 +2,18 @@
 
 {{ define "main" }}
   <section class="atmosphere-page about-page" aria-labelledby="page-title">
-    <div class="page-background" aria-hidden="true">
+    {{ with .Params.backgroundImage }}<div class="page-background" aria-hidden="true">
       {{ partial "media.html" (dict
-        "page" .
-        "src" .Params.backgroundImage
+        "page" $
+        "src" .
         "alt" ""
         "class" "background-image"
         "loading" "eager"
         "placeholder" "painting-hero"
       ) }}
-    </div>
-    <div class="page-overlay" aria-hidden="true"></div>
+    </div>{{ end }}
     <div class="site-shell atmosphere-content">
+      <p class="section-eyebrow">Profile / About</p>
       <h1 id="page-title" class="display-title">{{ .Title }}</h1>
       <div class="about-grid">
         <div class="portrait-frame">
@@ -30,4 +30,3 @@
     </div>
   </section>
 {{ end }}
-

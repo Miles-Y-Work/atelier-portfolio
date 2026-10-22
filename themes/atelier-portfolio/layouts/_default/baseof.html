@@ -9,6 +9,8 @@
     {{- $description := .Description | default site.Params.description -}}
     <meta name="description" content="{{ $description }}">
     <link rel="canonical" href="{{ .Permalink }}">
+    {{- $uikitStyles := resources.Get "vendor/uikit/uikit.min.css" | fingerprint -}}
+    <link rel="stylesheet" href="{{ $uikitStyles.RelPermalink }}" integrity="{{ $uikitStyles.Data.Integrity }}">
     {{- $styles := resources.Get "css/main.css" | minify | fingerprint -}}
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
   </head>
@@ -19,8 +21,9 @@
       {{ block "main" . }}{{ end }}
     </main>
     {{ partial "footer.html" . }}
+    {{- $uikitScript := resources.Get "vendor/uikit/uikit.min.js" | fingerprint -}}
+    <script src="{{ $uikitScript.RelPermalink }}" integrity="{{ $uikitScript.Data.Integrity }}" defer></script>
     {{- $script := resources.Get "js/main.js" | minify | fingerprint -}}
     <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}" defer></script>
   </body>
 </html>
-

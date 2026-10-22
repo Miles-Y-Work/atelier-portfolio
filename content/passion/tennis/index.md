@@ -1,6 +1,6 @@
 +++
 title = "Tennis — One Point at a Time"
-cardTitle = "TENNIS"
+cardTitle = "Tennis"
 cardDetail = "Practice · Matches · Focus"
 description = "What tennis teaches Mia about focus, patience, and the next point."
 weight = 7

@@ -1,6 +1,6 @@
 +++
 title = "The Mirror That Lies: Deepfakes and Society"
-cardTitle = "SPEECH"
+cardTitle = "Speech"
 cardDetail = "Informative Speaking · BBGM 2025"
 weight = 20
 cover = "deepfake-speech.png"

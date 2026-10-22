@@ -1,6 +1,6 @@
 +++
 title = "Half the Sky, Half the Care: Gender and Class Intersectionality at the Heart of Global Health Inequities"
-cardTitle = "WRITING"
+cardTitle = "Writing"
 weight = 10
 projectLayout = "feature"
 cover = "hero.png"

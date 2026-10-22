@@ -32,6 +32,15 @@ hugo --minify
 - `content/about/_index.md`
 - `content/contact/_index.md`
 
+Voices 和 Passion 的中间页分别由 `content/selected-work/_index.md` 和 `content/passion/_index.md` 配置。上半部分展示照片与介绍文字，下半部分为四个纯文字详情入口：
+
+- `eyebrow`、`intro`：标题上方的短语和介绍正文。
+- `[[introImages]]`：照片的 `src` 与 `alt`；填写 `page` 可复用该详情页中的图片。Voices 的第二张照片叠放在右下角；Passion 则将网球放在左下侧、小提琴放在右上侧，边缘错位重叠，避开人物主体。
+- `exploreLabel`：入口区域的小标题。
+- `[[sections]]`：每个入口对应的 `page` 和简短 `description`，按填写顺序排列，名称使用详情页的 `cardTitle`。
+
+桌面端采用左图右文、四列入口；手机端改为上下排列。导航下拉菜单保留详情页入口，手机菜单另有总览入口。
+
 ## 替换图片
 
 页面采用 Hugo Page Bundle。把图片放进对应内容文件所在目录，再填写同目录下 Markdown 文件的字段即可。

@@ -3,35 +3,10 @@
     <a class="site-mark" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Params.artistName }} home">
       {{ site.Params.initials | default "YN" }}
     </a>
-    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
-      <span class="sr-only" data-nav-label>Open navigation</span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
-    <nav id="site-nav" class="site-nav" aria-label="Main navigation" data-site-nav>
-      <ul>
-        {{- range site.Menus.main -}}
-          {{- $current := eq $.RelPermalink .URL -}}
-          {{- $active := or $current (and $.Section (eq $.Section .Identifier)) -}}
-          <li><a href="{{ .URL }}"{{ if $active }} class="is-active"{{ end }}{{ if $current }} aria-current="page"{{ else if $active }} aria-current="location"{{ end }}>{{ .Name }}</a></li>
-        {{- end -}}
-      </ul>
-    </nav>
+    <nav class="site-nav" aria-label="Main navigation" uk-dropnav="mode: hover; offset: 8">{{ partial "nav-links.html" (dict "page" . "mobile" false) }}</nav>
+    <details class="mobile-menu" data-mobile-menu>
+      <summary aria-label="Menu"><span aria-hidden="true"></span><span aria-hidden="true"></span></summary>
+      <nav class="mobile-menu-panel" aria-label="Mobile navigation">{{ partial "nav-links.html" (dict "page" . "mobile" true) }}</nav>
+    </details>
   </div>
-
-  {{- with .CurrentSection -}}
-    {{- $children := .RegularPages.ByWeight -}}
-    {{- if $children -}}
-      <nav class="section-nav" aria-label="{{ .Title | lower | title }} pages">
-        <div class="site-shell section-nav-inner">
-          <a class="section-nav-title" href="{{ .RelPermalink }}">{{ .Title | lower | title }}</a>
-          <ul>
-            {{- range $children -}}
-              <li><a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} class="is-active" aria-current="page"{{ end }}>{{ .Params.navTitle | default (.Params.cardTitle | default .LinkTitle | lower | title) }}</a></li>
-            {{- end -}}
-          </ul>
-        </div>
-      </nav>
-    {{- end -}}
-  {{- end -}}
 </header>

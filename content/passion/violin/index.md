@@ -1,6 +1,6 @@
 +++
 title = "Violin — A Long-Term Passion"
-cardTitle = "VIOLIN"
+cardTitle = "Violin"
 cardDetail = "Solo · Ensemble · Competitions"
 description = "Six years of violin practice, performances, and collaboration."
 weight = 5

@@ -2,18 +2,18 @@
 
 {{ define "main" }}
   <section class="atmosphere-page contact-page" aria-labelledby="page-title">
-    <div class="page-background" aria-hidden="true">
+    {{ with .Params.backgroundImage }}<div class="page-background" aria-hidden="true">
       {{ partial "media.html" (dict
-        "page" .
-        "src" .Params.backgroundImage
+        "page" $
+        "src" .
         "alt" ""
         "class" "background-image"
         "loading" "eager"
         "placeholder" "painting-hero"
       ) }}
-    </div>
-    <div class="page-overlay page-overlay-strong" aria-hidden="true"></div>
+    </div>{{ end }}
     <div class="site-shell atmosphere-content contact-content">
+      <p class="section-eyebrow">Get in touch</p>
       <h1 id="page-title" class="display-title">{{ .Title }}</h1>
       <div class="contact-grid">
         <div class="contact-info">
@@ -38,11 +38,11 @@
 
         <form class="contact-form" action="{{ site.Params.contact.formAction }}" method="post" data-contact-form>
           <div class="form-row">
-            <label>First name <span aria-hidden="true">*</span><input type="text" name="first-name" autocomplete="given-name" required></label>
-            <label>Last name <span aria-hidden="true">*</span><input type="text" name="last-name" autocomplete="family-name" required></label>
+            <label><span>First name <span aria-hidden="true">*</span></span><input type="text" name="first-name" autocomplete="given-name" required></label>
+            <label><span>Last name <span aria-hidden="true">*</span></span><input type="text" name="last-name" autocomplete="family-name" required></label>
           </div>
           <div class="form-row">
-            <label>Email <span aria-hidden="true">*</span><input type="email" name="email" autocomplete="email" required></label>
+            <label><span>Email <span aria-hidden="true">*</span></span><input type="email" name="email" autocomplete="email" required></label>
             <label>Subject<input type="text" name="subject"></label>
           </div>
           <label>Leave us a message…<textarea name="message" rows="5"></textarea></label>
@@ -53,4 +53,3 @@
     </div>
   </section>
 {{ end }}
-

@@ -1,6 +1,6 @@
 +++
 title = "Learning to Synergize"
-cardTitle = "COMMUNITY"
+cardTitle = "Community"
 cardDetail = "Student Sharing · 6th Coffee Morning"
 weight = 40
 cover = ""

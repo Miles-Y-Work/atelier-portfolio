@@ -1,5 +1,5 @@
 +++
-title = "ABOUT ME"
+title = "About Me"
 description = "Meet Mia Jin, a Grade 7 student, writer, speaker, musician, and science enthusiast."
 portrait = "portrait.jpg"
 backgroundImage = ""

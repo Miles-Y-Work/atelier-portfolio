@@ -1,6 +1,6 @@
 +++
 title = "Chemistry: A Scientific Curiosity"
-cardTitle = "CHEMISTRY"
+cardTitle = "Chemistry"
 cardDetail = "Chemistry of Medicine · CTD–ASEEDER"
 description = "How five days in the laboratory turned chemistry from formulas into something Mia could see, smell, and test."
 weight = 10

@@ -16,6 +16,7 @@
   </div>
 
   <div class="project-masthead-copy">
+    <p class="project-kicker project-kicker-mobile">{{ .Params.cardTitle | default "Project" }}</p>
     <h1 id="project-title">{{ .Title }}</h1>
     {{- with .Params.dek -}}<p class="project-dek">{{ . }}</p>{{- end -}}
     {{- with .Params.links -}}
@@ -25,4 +26,3 @@
     {{- end -}}
   </div>
 </header>
-

@@ -1,6 +1,6 @@
 +++
 title = "Reading & Reflections"
-cardTitle = "READING"
+cardTitle = "Reading"
 cardDetail = "Books · Characters · Reflection"
 description = "Stories about finding a voice and the questions they leave with Mia."
 weight = 30

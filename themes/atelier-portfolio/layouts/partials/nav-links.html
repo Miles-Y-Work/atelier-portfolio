@@ -1,0 +1,15 @@
+<ul>
+  {{- range site.Menus.main -}}
+    {{- $current := eq $.page.RelPermalink .URL -}}
+    {{- $active := or $current (and $.page.Section (eq $.page.Section .Identifier)) -}}
+    {{- $children := slice -}}
+    {{- with site.GetPage .URL -}}
+      {{- if .IsSection -}}{{- $children = .RegularPages.ByWeight -}}{{- end -}}
+    {{- end -}}
+    {{- if $children -}}
+      {{ partial "nav-dropdown.html" (dict "entry" . "children" $children "page" $.page "active" $active "current" $current "mobile" $.mobile) }}
+    {{- else -}}
+      <li class="nav-item"><a href="{{ .URL }}"{{ if $active }} class="is-active"{{ end }}{{ if $current }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+    {{- end -}}
+  {{- end -}}
+</ul>

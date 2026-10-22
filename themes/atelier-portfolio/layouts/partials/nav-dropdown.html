@@ -1,0 +1,23 @@
+{{- $entry := .entry -}}
+<li class="nav-item has-submenu nav-item-{{ $entry.Identifier }}">
+  {{- if .mobile -}}
+    <details class="nav-dropdown" name="mobile-submenu">
+      <summary aria-label="{{ $entry.Name }} submenu"{{ if .active }} class="is-active"{{ end }}>{{ $entry.Name }}<span class="submenu-chevron" aria-hidden="true"></span></summary>
+      <ul class="mobile-submenu" aria-label="{{ $entry.Name }} pages">
+        <li><a href="{{ $entry.URL }}"{{ if .current }} class="is-active" aria-current="page"{{ end }}>{{ $entry.Name }} overview</a></li>
+        {{- range .children -}}
+          <li><a href="{{ .RelPermalink }}"{{ if eq $.page.RelPermalink .RelPermalink }} class="is-active" aria-current="page"{{ end }}>{{ .Params.navTitle | default (.Params.cardTitle | default .LinkTitle | lower | title) }}</a></li>
+        {{- end -}}
+      </ul>
+    </details>
+  {{- else -}}
+    <a class="nav-trigger{{ if .active }} is-active{{ end }}" href="{{ $entry.URL }}"{{ if .current }} aria-current="page"{{ end }}>{{ $entry.Name }}<span class="submenu-chevron" aria-hidden="true"></span></a>
+    <div class="uk-dropdown nav-popover">
+      <ul class="uk-nav uk-dropdown-nav">
+        {{- range .children -}}
+          <li><a href="{{ .RelPermalink }}"{{ if eq $.page.RelPermalink .RelPermalink }} class="is-active" aria-current="page"{{ end }}>{{ .Params.navTitle | default (.Params.cardTitle | default .LinkTitle | lower | title) }}</a></li>
+        {{- end -}}
+      </ul>
+    </div>
+  {{- end -}}
+</li>

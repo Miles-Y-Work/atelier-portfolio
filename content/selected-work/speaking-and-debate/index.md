@@ -1,6 +1,6 @@
 +++
 title = "Learning to Argue Both Sides"
-cardTitle = "DEBATE"
+cardTitle = "Debate"
 cardDetail = "Public Forum · NHSDLC 2025"
 weight = 30
 cover = "debate-team.jpg"

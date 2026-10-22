@@ -1,27 +1,41 @@
-<section class="work-index site-shell" aria-labelledby="page-title">
-  <h1 id="page-title" class="display-title">{{ .Title }}</h1>
+<section class="collection-index site-shell" aria-labelledby="page-title">
+  <header class="collection-opening">
+    {{ with .Params.introImages }}
+      <div class="collection-photos">
+        {{ range $index, $image := . }}
+          {{- $imagePage := $ -}}
+          {{- with .page -}}{{- $imagePage = $.GetPage . -}}{{- end -}}
+          <figure class="collection-photo{{ if eq $index 0 }} collection-photo-main{{ else }} collection-photo-detail{{ end }}">
+            {{ partial "media.html" (dict "page" $imagePage "src" .src "alt" .alt "class" "collection-image" "loading" "eager" "sizes" "(max-width: 1000px) 90vw, 42vw") }}
+          </figure>
+        {{ end }}
+      </div>
+    {{ end }}
+    <div class="collection-copy">
+      <div class="collection-heading">
+        {{ with .Params.eyebrow }}<p class="collection-eyebrow">{{ . }}</p>{{ end }}
+        <h1 id="page-title" class="collection-title">{{ .Title }}</h1>
+      </div>
+      {{ with (.Params.intro | default .Description) }}<div class="collection-description">{{ . | markdownify }}</div>{{ end }}
+    </div>
+  </header>
 
-  <div class="work-grid">
-    {{- range .Pages.ByWeight -}}
-      <a class="work-card" href="{{ .RelPermalink }}">
-        <figure>
-          <div class="work-card-media">
-            {{ partial "media.html" (dict
-              "page" .
-              "src" .Params.cover
-              "alt" (.Params.coverAlt | default (.Params.cardTitle | default .Title))
-              "class" "work-cover"
-              "placeholder" (cond (eq (mod .Weight 20) 0) "painting-b" "painting-a")
-            ) }}
-          </div>
-          <figcaption>
-            <span>{{ .Params.cardTitle | default .Title }}</span>
-            {{ with (.Params.cardDetail | default .Params.award) }}<small>{{ . }}</small>{{ end }}
-          </figcaption>
-        </figure>
-      </a>
-    {{- else -}}
-      <p class="empty-state">还没有添加内容。</p>
-    {{- end -}}
-  </div>
+  <nav class="collection-explore" aria-labelledby="collection-explore-title">
+    <h2 id="collection-explore-title" class="collection-explore-label">{{ .Params.exploreLabel | default "Explore" }}</h2>
+    <ul class="collection-links">
+      {{- range .Params.sections -}}
+        {{- $description := .description -}}
+        {{- with $.GetPage .page -}}
+          <li>
+            <a class="collection-link" href="{{ .RelPermalink }}">
+              <span class="collection-link-title">{{ .Params.cardTitle | default .LinkTitle }}</span>
+              {{ with $description }}<span class="collection-link-description">{{ . }}</span>{{ end }}
+            </a>
+          </li>
+        {{- else -}}
+          {{- errorf "Collection %s references missing page %s" $.RelPermalink .page -}}
+        {{- end -}}
+      {{- end -}}
+    </ul>
+  </nav>
 </section>

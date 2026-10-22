@@ -1,48 +1,4 @@
 (() => {
-  const toggle = document.querySelector('[data-nav-toggle]');
-  const nav = document.querySelector('[data-site-nav]');
-
-  if (toggle && nav) {
-    const label = toggle.querySelector('[data-nav-label]');
-    const mobile = window.matchMedia('(max-width: 760px)');
-    const closeMenu = () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      if (label) label.textContent = 'Open navigation';
-      document.body.classList.remove('nav-open');
-    };
-
-    toggle.addEventListener('click', () => {
-      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-      closeMenu();
-      toggle.setAttribute('aria-expanded', String(!isOpen));
-      if (label) label.textContent = isOpen ? 'Open navigation' : 'Close navigation';
-      document.body.classList.toggle('nav-open', !isOpen);
-    });
-
-    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
-    document.addEventListener('click', (event) => {
-      if (event.target === nav || (!nav.contains(event.target) && !toggle.contains(event.target))) closeMenu();
-    });
-    window.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && document.body.classList.contains('nav-open')) {
-        closeMenu();
-        toggle.focus();
-      }
-      if (event.key === 'Tab' && mobile.matches && document.body.classList.contains('nav-open')) {
-        const links = [...nav.querySelectorAll('a, button')].filter((element) => element.getClientRects().length);
-        const last = links[links.length - 1];
-        if (event.shiftKey && document.activeElement === toggle) {
-          event.preventDefault();
-          last?.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          toggle.focus();
-        }
-      }
-    });
-    mobile.addEventListener('change', closeMenu);
-  }
-
   const form = document.querySelector('[data-contact-form]');
   if (form && !form.getAttribute('action')) {
     form.addEventListener('submit', (event) => {
