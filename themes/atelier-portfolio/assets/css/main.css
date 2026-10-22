@@ -83,6 +83,12 @@ small {
   font-size: var(--type-label);
 }
 
+em,
+i {
+  color: inherit;
+  font-style: italic;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -2770,11 +2776,6 @@ a.project-recognition-item:focus-visible small {
   line-height: 1.04;
 }
 
-.reading-opening-copy h1 em {
-  color: #9d816b;
-  font-weight: 400;
-}
-
 .reading-hero {
   aspect-ratio: 4 / 3;
   margin: 0;
@@ -3509,10 +3510,6 @@ a.project-recognition-item:focus-visible small {
 
 .project-opening-quote {
   font-size: var(--type-subheading);
-}
-
-.reading-opening-copy h1 em {
-  color: var(--accent);
 }
 
 .passion-facts dd {
