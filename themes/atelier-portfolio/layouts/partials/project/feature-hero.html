@@ -24,7 +24,7 @@
 
   <div class="project-feature-heading site-shell">
     <p class="project-feature-kicker">{{ .Params.eyebrow | default (.Params.cardTitle | default "Featured work") }}</p>
-    <h1 id="project-title"{{ if gt (len .Title) 58 }} class="title-long"{{ end }}>{{ .Title }}</h1>
+    <h1 id="project-title">{{ .Title }}</h1>
     {{- if or .Params.authorLine .Params.dek -}}
       <div class="project-feature-intro">
         {{- with .Params.authorLine -}}<p class="project-feature-author">{{ . }}</p>{{- end -}}
