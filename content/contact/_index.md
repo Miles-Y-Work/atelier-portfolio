@@ -1,7 +1,10 @@
 +++
 title = "Contact"
-description = "Contact the artist."
+description = "Have a question or just want to say hello? Get in touch with Mia Jin."
 backgroundImage = ""
+messageSentences = ["Leave me a message.", "I’d love to hear from you!"]
 +++
 
-如果你对作品、展览或合作感兴趣，欢迎通过以下方式联系。
+Thank you for visiting my website!
+
+Have a question or just want to say hello?

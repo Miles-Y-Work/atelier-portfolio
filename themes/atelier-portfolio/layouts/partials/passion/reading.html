@@ -5,21 +5,28 @@
       <h1 id="reading-title">Reading <em>&amp;</em><br>Reflections</h1>
       <p>Growing Through Stories</p>
     </div>
+    {{ if .Params.bookCovers }}
+    <figure class="reading-hero reading-hero--books" aria-label="Books Mia has read">
+      {{ range .Params.bookCovers }}
+        <a class="reading-book" href="{{ .source }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .title }} — Penguin Clothbound Classics">
+          {{ partial "media.html" (dict "page" $ "src" .src "alt" (printf "%s — published Penguin Clothbound Classics cover, ISBN %s" .title .isbn) "class" "reading-book-cover" "loading" "eager" "sizes" "(max-width: 760px) 34vw, 180px") }}
+        </a>
+      {{ end }}
+    </figure>
+    {{ else }}
     <figure class="reading-hero">
       {{ partial "media.html" (dict "page" . "src" .Params.cover "alt" .Params.coverAlt "class" "reading-hero-image" "loading" "eager") }}
     </figure>
+    {{ end }}
   </header>
 
-  <section class="reading-introduction site-shell" aria-labelledby="reading-intro-title">
-    <p class="passion-special-kicker" id="reading-intro-title">Why I read</p>
+  <section class="reading-introduction site-shell" aria-label="About my reading">
     <div class="reading-introduction-text">{{ .Params.intro | markdownify }}</div>
   </section>
 
   <section class="reading-reflections site-shell" aria-labelledby="reading-reflections-title">
     <div class="reading-section-heading">
-      <p class="passion-special-kicker">Great Expectations · Charles Dickens</p>
       <h2 id="reading-reflections-title">My Reflections</h2>
-      <p>Two passages on ambition, identity, and the people who shape us.</p>
     </div>
     <div class="reading-essay-list">
       {{ range .Params.reflections }}

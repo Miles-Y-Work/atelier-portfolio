@@ -433,6 +433,7 @@ textarea {
 
 .hero-content h1 {
   margin: 0;
+  color: #fff;
   font-family: var(--serif);
   font-size: var(--type-hero);
   font-weight: 400;
@@ -1403,6 +1404,18 @@ a.project-recognition-item:focus-visible small {
 
 .contact-info .prose {
   max-width: 390px;
+}
+
+.contact-message-sentence {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.contact-email {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.4em;
 }
 
 .contact-info address {
@@ -2789,12 +2802,44 @@ a.project-recognition-item:focus-visible small {
   object-fit: cover;
 }
 
-.reading-introduction {
-  padding-top: 98px;
+.reading-hero--books {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 18px 22px;
+  padding: 22px;
+  background: #eae4d8;
 }
 
-.reading-introduction .passion-special-kicker {
-  padding-top: 8px;
+.reading-book {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+
+.reading-book-cover {
+  width: auto;
+  height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  box-shadow: 3px 5px 12px rgba(37, 33, 29, 0.15);
+}
+
+.reading-book:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.reading-introduction {
+  display: block;
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+
+.reading-introduction-text {
+  margin-inline: auto;
 }
 
 .reading-essay-list {
@@ -2968,7 +3013,7 @@ a.project-recognition-item:focus-visible small {
 
 /* Image-led introductions with text-only links to project stories. */
 .collection-index {
-  --collection-accent: #b8a889;
+  --collection-accent: var(--accent);
   padding-block: clamp(56px, 6vw, 88px) 80px;
 }
 
@@ -3000,7 +3045,7 @@ a.project-recognition-item:focus-visible small {
   bottom: 0;
   width: 82%;
   aspect-ratio: 4 / 3;
-  border: 9px solid var(--black);
+  border: 9px solid var(--paper);
 }
 
 .collection-image {
@@ -3011,6 +3056,21 @@ a.project-recognition-item:focus-visible small {
 
 .collection-photo-main .collection-image {
   object-position: center top;
+}
+
+.page-voices-index .collection-photos {
+  aspect-ratio: 1 / 0.87;
+  padding-right: 12%;
+}
+
+.page-voices-index .collection-photo-main {
+  aspect-ratio: 1667 / 943;
+}
+
+.page-voices-index .collection-photo-detail {
+  width: 74%;
+  aspect-ratio: 1668 / 943;
+  border: 0;
 }
 
 .page-passion-index .collection-photos {
@@ -3064,7 +3124,7 @@ a.project-recognition-item:focus-visible small {
 
 .collection-title {
   margin: 0;
-  color: var(--white);
+  color: var(--ink);
   font-family: var(--serif);
   font-size: var(--type-page);
   font-weight: 400;
@@ -3076,7 +3136,7 @@ a.project-recognition-item:focus-visible small {
 .collection-description {
   max-width: 620px;
   margin-top: 38px;
-  color: #c2c0ba;
+  color: var(--ink-soft);
   font-size: var(--type-body);
   line-height: 1.95;
   text-wrap: pretty;
@@ -3092,11 +3152,11 @@ a.project-recognition-item:focus-visible small {
 
 .collection-explore {
   padding-top: 25px;
-  border-top: 1px solid #37332c;
+  border-top: 1px solid var(--rule);
 }
 
 .collection-explore-label {
-  color: #aaa69e;
+  color: var(--ink-muted);
 }
 
 .collection-links {
@@ -3115,7 +3175,7 @@ a.project-recognition-item:focus-visible small {
 }
 
 .collection-link-title {
-  color: var(--white);
+  color: var(--ink);
   font-family: var(--serif);
   font-size: var(--type-subheading);
   line-height: 1.25;
@@ -3126,7 +3186,7 @@ a.project-recognition-item:focus-visible small {
 .collection-link-description {
   display: block;
   margin-top: 15px;
-  color: #aaa69e;
+  color: var(--ink-muted);
   font-size: var(--type-small);
   line-height: 1.65;
 }
@@ -3200,7 +3260,7 @@ a.project-recognition-item:focus-visible small {
   }
 
   .collection-links li + li {
-    border-top: 1px solid #24221e;
+    border-top: 1px solid var(--rule);
   }
 
   .collection-link {
@@ -3213,6 +3273,7 @@ a.project-recognition-item:focus-visible small {
 }
 
 /* Shared editorial system for every interior page. */
+.page-collection .site-main,
 .page-work .site-main,
 .page-project .site-main,
 .page-passion .site-main,
@@ -3650,4 +3711,187 @@ a.project-recognition-item:focus-visible small {
   .reading-essay-prose {
     font-size: var(--type-body);
   }
+}
+
+/* Chemistry: chapters follow the source material and its image sequence. */
+.chemistry-opening {
+  padding-block: var(--space-page) 64px;
+}
+
+.chemistry-opening h1 {
+  max-width: 100%;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(26px, 6vw, 84px);
+  font-weight: 400;
+  letter-spacing: -0.05em;
+  line-height: 1.03;
+}
+
+.chemistry-title-line { display: block; white-space: nowrap; }
+
+.chemistry-question {
+  margin: 28px 0 0;
+  color: var(--ink-soft);
+  font-family: var(--serif);
+  font-size: var(--type-lead);
+}
+
+.chemistry-opening .passion-facts {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-top: 48px;
+}
+
+.chemistry-chapters {
+  padding-bottom: 64px;
+}
+
+.chemistry-chapter {
+  padding-top: 48px;
+  border-top: 1px solid var(--rule);
+}
+
+.chemistry-chapter-heading {
+  margin-bottom: 32px;
+}
+
+.chemistry-chapter-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(36px, 5vw, 64px);
+}
+
+.chemistry-chapter + .chemistry-chapter {
+  margin-top: 64px;
+}
+
+.chemistry-chapter-copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.chemistry-gallery {
+  grid-column: 1;
+  grid-row: 1;
+  min-width: 0;
+  width: 100%;
+  max-width: 360px;
+  justify-self: center;
+}
+
+.chemistry-chapter--compact .chemistry-gallery { max-width: 280px; }
+.chemistry-chapter--wide-image .chemistry-gallery { max-width: none; }
+
+.chemistry-chapter--image-right .chemistry-chapter-copy {
+  grid-column: 1;
+}
+
+.chemistry-chapter--image-right .chemistry-gallery {
+  grid-column: 2;
+}
+
+.chemistry-chapter-number {
+  margin: 0 0 14px;
+  color: var(--accent);
+  font-size: var(--type-label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.chemistry-chapter h2 {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--type-section);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+  white-space: nowrap;
+}
+
+.chemistry-prose {
+  color: var(--ink-soft);
+  font-size: var(--type-body);
+  line-height: 1.85;
+}
+
+.chemistry-prose p:first-child { margin-top: 0; }
+.chemistry-prose p:last-child { margin-bottom: 0; }
+.chemistry-prose em { color: inherit; }
+
+.chemistry-photo { margin: 0; }
+.chemistry-image { width: 100%; height: auto; }
+.chemistry-photo figcaption {
+  margin-top: 10px;
+  color: var(--ink-muted);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.chemistry-gallery--2 .chemistry-photo--1 { width: 58%; }
+.chemistry-gallery--2 .chemistry-photo--2 {
+  position: relative;
+  width: 68%;
+  margin: -8% 0 0 auto;
+}
+
+.chemistry-chapter--gallery .chemistry-chapter-body {
+  display: block;
+}
+
+.chemistry-chapter--gallery .chemistry-chapter-copy {
+  max-width: 740px;
+}
+
+.chemistry-gallery--3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  max-width: none;
+  margin-top: 36px;
+}
+
+.chemistry-gallery--3 .chemistry-image {
+  aspect-ratio: 3 / 2;
+  object-fit: contain;
+}
+
+.chemistry-intro-title-line { display: block; white-space: nowrap; }
+
+.chemistry-chapter--heading-aligned {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px clamp(36px, 5vw, 64px);
+  align-items: start;
+}
+
+.chemistry-chapter--heading-aligned .chemistry-chapter-heading {
+  grid-column: 1;
+  grid-row: 1;
+  margin-bottom: 0;
+}
+
+.chemistry-chapter--heading-aligned h2 { white-space: normal; }
+.chemistry-chapter--heading-aligned.chemistry-chapter--compact .chemistry-gallery { max-width: 280px; }
+.chemistry-chapter--heading-aligned .chemistry-chapter-body { display: contents; }
+.chemistry-chapter--heading-aligned .chemistry-chapter-copy { grid-column: 1; grid-row: 2; }
+.chemistry-chapter--heading-aligned .chemistry-gallery { grid-column: 2; grid-row: 1 / span 2; max-width: 380px; }
+
+@media (max-width: 760px) {
+  .chemistry-opening { padding-block: 48px; }
+  .chemistry-opening .passion-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  .chemistry-chapter { padding-top: 36px; }
+  .chemistry-chapter-heading { margin-bottom: 24px; }
+  .chemistry-chapter-body { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .chemistry-chapter .chemistry-chapter-copy { grid-column: 1; grid-row: 1; }
+  .chemistry-chapter .chemistry-gallery { grid-column: 1; grid-row: 2; }
+  .chemistry-chapter h2 { font-size: clamp(26px, 5.5vw, 36px); white-space: normal; }
+  .chemistry-chapter + .chemistry-chapter { margin-top: 48px; }
+  .chemistry-gallery--3 { grid-template-columns: minmax(0, 1fr); max-width: 420px; margin-inline: auto; gap: 24px; }
+  .chemistry-chapter--heading-aligned { grid-template-columns: minmax(0, 1fr); }
+  .chemistry-chapter--heading-aligned .chemistry-chapter-copy { grid-row: 2; }
+  .chemistry-chapter--heading-aligned .chemistry-gallery { grid-column: 1; grid-row: 3; max-width: 340px; }
 }

@@ -4,8 +4,14 @@ cardTitle = "Reading"
 cardDetail = "Books · Characters · Reflection"
 description = "Stories about finding a voice and the questions they leave with Mia."
 weight = 30
-cover = "reading-cover.svg"
-coverAlt = "Typographic illustration of an open book titled Reading and Reflections"
+cover = "pride-and-prejudice-penguin.jpg"
+coverAlt = "The published Penguin Clothbound Classics cover of Pride and Prejudice"
+bookCovers = [
+  { src = "pride-and-prejudice-penguin.jpg", title = "Pride and Prejudice", isbn = "9780141040349", source = "https://www.penguinrandomhouseretail.com/book/?isbn=9780141040349" },
+  { src = "little-women-penguin.jpg", title = "Little Women", isbn = "9780141192413", source = "https://www.penguinrandomhouseretail.com/book/?isbn=9780141192413" },
+  { src = "jane-eyre-penguin.jpg", title = "Jane Eyre", isbn = "9780141040387", source = "https://www.penguinrandomhouseretail.com/book/?isbn=9780141040387" },
+  { src = "great-expectations-penguin.jpg", title = "Great Expectations", isbn = "9780141040363", source = "https://www.penguinrandomhouseretail.com/book/?isbn=9780141040363" },
+]
 reading = true
 intro = """I love reading classics, especially stories about women finding their own voices and deciding how they want to live. Some of the books I have read include *Pride and Prejudice*, *Little Women*, *Jane Eyre*, and *Great Expectations*. Although their worlds are different from mine, the characters’ questions about family, belonging, and the future still feel familiar.
 
@@ -13,7 +19,7 @@ I am especially interested in characters like Elizabeth Bennet, Jo March, and Ja
 
 [[reflections]]
 title = "Social Class and Ambition in Great Expectations"
-label = "Essay 01 · Charles Dickens"
+label = "Essay 01"
 file = "social-class-and-ambition.docx"
 body = """Charles Dickens’s *Great Expectations* explores the strict social divisions of Victorian society through Pip’s bittersweet attempt to climb the social ladder. Pip comes from a humble background and dreams of becoming a gentleman, but his expectations eventually leave him disappointed. Through his experience, Dickens shows that wealth and social status do not always bring happiness. When people give up their values to gain a higher position, they may also lose something more precious: the love and care of those around them. Pip’s motivation, the cost of his ambition, and his growing regrets help reveal this message.
 
@@ -29,7 +35,7 @@ Charles Dickens. *Great Expectations*. Project Gutenberg, 1867 edition. Quotatio
 
 [[reflections]]
 title = "Estella in Great Expectations"
-label = "Essay 02 · Charles Dickens"
+label = "Essay 02"
 file = "estella-in-great-expectations.docx"
 body = """In Charles Dickens’s *Great Expectations*, Estella appears as an elegant and beautiful young woman who has a strong influence on Pip. She is Miss Havisham’s adopted daughter and becomes a tool in her guardian’s plan for revenge against men. Although Estella often seems cruel, I believe her coldness is largely a result of her upbringing. She plays two important roles in the novel: she helps Miss Havisham carry out her revenge and inspires Pip’s ambition to become a gentleman.
 

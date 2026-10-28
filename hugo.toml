@@ -1,5 +1,5 @@
 baseURL = "/"
-languageCode = "zh-cn"
+locale = "zh-cn"
 title = "Mia Jin"
 theme = "atelier-portfolio"
 enableRobotsTXT = true
@@ -12,13 +12,13 @@ disableKinds = ["taxonomy", "term", "RSS"]
   description = "The personal portfolio of Mia Jin, a student, writer, speaker, and curious explorer."
 
   [params.contact]
-    email = "hello@example.com"
-    phone = "+86 138 0000 0000"
+    email = "miaj0622@hotmail.com"
+    phone = ""
     formAction = ""
 
   [params.social]
-    instagram = "https://www.instagram.com/"
-    facebook = "https://www.facebook.com/"
+    instagram = ""
+    facebook = ""
 
 [[menus.main]]
   name = "Home"

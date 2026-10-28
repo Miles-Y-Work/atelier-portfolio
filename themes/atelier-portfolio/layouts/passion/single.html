@@ -1,7 +1,9 @@
 {{ define "bodyClass" }}page-passion{{ end }}
 
 {{ define "main" }}
-  {{ if .Params.timeline }}
+  {{ if .Params.chemistry }}
+    {{ partial "passion/chemistry.html" . }}
+  {{ else if .Params.timeline }}
     {{ partial "passion/timeline.html" . }}
   {{ else if .Params.tennis }}
     {{ partial "passion/tennis.html" . }}

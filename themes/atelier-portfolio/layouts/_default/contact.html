@@ -17,12 +17,18 @@
       <h1 id="page-title" class="display-title">{{ .Title }}</h1>
       <div class="contact-grid">
         <div class="contact-info">
-          <div class="prose">{{ .Content }}</div>
+          <div class="prose">
+            {{ .Content }}
+            {{ with .Params.messageSentences }}
+              <p class="contact-message">{{ range $index, $sentence := . }}{{ if $index }} {{ end }}<span class="contact-message-sentence">{{ $sentence }}</span>{{ end }}</p>
+            {{ end }}
+          </div>
           <address>
-            <a href="mailto:{{ site.Params.contact.email }}">{{ site.Params.contact.email }}</a>
-            <a href="tel:{{ replaceRE `[^0-9+]` `` site.Params.contact.phone }}">{{ site.Params.contact.phone }}</a>
+            {{ with site.Params.contact.email }}<div class="contact-email"><span>My Email:</span><a href="mailto:{{ . }}">{{ . }}</a></div>{{ end }}
+            {{ with site.Params.contact.phone }}<a href="tel:{{ replaceRE `[^0-9+]` `` . }}">{{ . }}</a>{{ end }}
           </address>
-          <div class="social-links" aria-label="社交媒体">
+          {{ if or site.Params.social.facebook site.Params.social.instagram }}
+          <div class="social-links" aria-label="Social media">
             {{ with site.Params.social.facebook }}
               <a href="{{ . }}" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-3 0-5 2-5 5v2H6v4h3v7h4v-7h3l1-4h-4V9c0-.7.3-1 1-1Z"/></svg>
@@ -34,9 +40,11 @@
               </a>
             {{ end }}
           </div>
+          {{ end }}
         </div>
 
-        <form class="contact-form" action="{{ site.Params.contact.formAction }}" method="post" data-contact-form>
+        {{ $formAction := site.Params.contact.formAction }}
+        <form class="contact-form" action="{{ $formAction | default (printf "mailto:%s" site.Params.contact.email) }}" method="{{ if $formAction }}post{{ else }}get{{ end }}" data-contact-form data-contact-email="{{ site.Params.contact.email }}">
           <div class="form-row">
             <label><span>First name <span aria-hidden="true">*</span></span><input type="text" name="first-name" autocomplete="given-name" required></label>
             <label><span>Last name <span aria-hidden="true">*</span></span><input type="text" name="last-name" autocomplete="family-name" required></label>
@@ -45,9 +53,9 @@
             <label><span>Email <span aria-hidden="true">*</span></span><input type="email" name="email" autocomplete="email" required></label>
             <label>Subject<input type="text" name="subject"></label>
           </div>
-          <label>Leave us a message…<textarea name="message" rows="5"></textarea></label>
-          <button type="submit">Submit</button>
-          <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          <label><span>Your message <span aria-hidden="true">*</span></span><textarea name="message" rows="5" required></textarea></label>
+          <button type="submit">{{ if $formAction }}Send message{{ else }}Open email draft{{ end }}</button>
+          <p class="form-status" role="status" aria-live="polite" data-form-status>{{ if not $formAction }}Opens your email app with your message ready to send.{{ end }}</p>
         </form>
       </div>
     </div>

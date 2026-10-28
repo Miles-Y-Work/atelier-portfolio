@@ -210,7 +210,7 @@ photos = [
 
 ## 联系表单
 
-模板默认只演示表单交互，不会发送数据。接入 Formspree、Netlify Forms 或自己的接口后，把地址写入 `hugo.toml`：
+未配置表单接口时，留言表单会打开访客的邮件应用，将收件人、主题和留言填入草稿，由访客确认发送。收件人读取 `hugo.toml` 中的 `params.contact.email`。接入 Formspree、Netlify Forms 或自己的接口后，把地址写入 `hugo.toml`：
 
 ```toml
 [params.contact]

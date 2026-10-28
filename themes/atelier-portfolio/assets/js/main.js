@@ -1,11 +1,17 @@
 (() => {
   const form = document.querySelector('[data-contact-form]');
-  if (form && !form.getAttribute('action')) {
+  if (form && form.getAttribute('action')?.startsWith('mailto:') && form.dataset.contactEmail) {
     form.addEventListener('submit', (event) => {
       event.preventDefault();
+      const data = new FormData(form);
+      const name = [data.get('first-name'), data.get('last-name')].filter(Boolean).join(' ');
+      const subject = String(data.get('subject') || `Website message from ${name}`);
+      const body = `${data.get('message') || ''}\n\nFrom: ${name}\nEmail: ${data.get('email') || ''}`;
+      const recipient = form.getAttribute('action');
+      window.location.href = `${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       const status = form.querySelector('[data-form-status]');
       if (status) {
-        status.textContent = '表单样式已就绪；发布前请在 hugo.toml 中配置 formAction。';
+        status.textContent = 'Review the draft in your email app, then send it when you’re ready.';
       }
     });
   }
