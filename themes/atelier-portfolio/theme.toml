@@ -4,7 +4,7 @@ licenselink = "https://opensource.org/licenses/MIT"
 description = "A reusable, image-led Hugo portfolio theme for artists and students."
 homepage = "https://example.com/"
 tags = ["portfolio", "artist", "minimal", "responsive"]
-min_version = "0.120.0"
+min_version = "0.118.2"
 
 [author]
   name = "Portfolio Template"

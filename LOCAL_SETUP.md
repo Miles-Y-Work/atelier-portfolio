@@ -53,4 +53,8 @@ pnpm build
 
 2026-10-22 已完成正式构建，生成 16 个页面并处理 159 张响应式图片。13 个主要页面及各自引用的本地图片、样式和脚本均通过 HTTP 访问检查。
 
-为了兼容当前 Hugo，已将配置中的 `languageCode` 改为 `locale`，模板中对应的 `LanguageCode` 改为 `Locale`。构建没有警告或错误。
+2026-10-28 修复 Cloudflare Pages 旧版 Hugo 构建兼容性：配置使用 `defaultContentLanguage = "zh-cn"`，HTML 语言属性读取新旧版本均支持的 `site.Language.Lang`。不依赖 Hugo 0.158.0 才新增的 `Language.Locale`，也不使用新版已弃用的 `languageCode`。
+
+图片转换改用旧版也支持的 `Resize`，先限制回退图片宽度为 1800 像素，避免先转换原始大图后再次缩放。首次生成全部图片的模板超时设为 180 秒。
+
+已分别通过 Hugo Extended 0.118.2（全新图片缓存）和 0.168.0 完整构建，并检查两版输出的页面路由、HTML 语言属性和图片、样式、脚本文件。

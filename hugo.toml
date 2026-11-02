@@ -1,5 +1,6 @@
 baseURL = "/"
-locale = "zh-cn"
+defaultContentLanguage = "zh-cn"
+timeout = "180s"
 title = "Mia Jin"
 theme = "atelier-portfolio"
 enableRobotsTXT = true

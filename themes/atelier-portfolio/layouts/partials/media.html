@@ -10,10 +10,11 @@
     {{- $resource := . -}}
     {{- $isProcessable := and (eq $resource.MediaType.MainType "image") (ne $resource.MediaType.SubType "svg") -}}
     {{- if $isProcessable -}}
-      {{- $fallback := $resource.Process "webp q84" -}}
-      {{- if gt $resource.Width 1800 -}}
-        {{- $fallback = $resource.Resize "1800x webp q84" -}}
+      {{- $fallbackWidth := $resource.Width -}}
+      {{- if gt $fallbackWidth 1800 -}}
+        {{- $fallbackWidth = 1800 -}}
       {{- end -}}
+      {{- $fallback := $resource.Resize (printf "%dx webp q84" $fallbackWidth) -}}
       {{- $srcset := slice -}}
       {{- range $width := slice 720 1200 1800 -}}
         {{- if ge $resource.Width $width -}}
