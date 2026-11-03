@@ -1,6 +1,15 @@
 <header class="project-masthead">
-  <div class="project-masthead-meta">
+  <div class="project-masthead-copy">
     <p class="project-kicker">{{ .Params.cardTitle | default "Project" }}</p>
+    <h1 id="project-title">{{ .Title }}</h1>
+    {{- with .Params.dek -}}<p class="project-dek">{{ . }}</p>{{- end -}}
+    {{- with .Params.links -}}
+      <div class="project-links">
+        {{- range . -}}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">↗</span></a>{{- end -}}
+      </div>
+    {{- end -}}
+  </div>
+  <div class="project-masthead-meta">
     {{- with .Params.meta -}}
       <dl class="project-facts">
         {{- range . -}}
@@ -12,17 +21,6 @@
       </dl>
     {{- else -}}
       {{- with .Params.award -}}<p class="project-award">{{ . }}</p>{{- end -}}
-    {{- end -}}
-  </div>
-
-  <div class="project-masthead-copy">
-    <p class="project-kicker project-kicker-mobile">{{ .Params.cardTitle | default "Project" }}</p>
-    <h1 id="project-title">{{ .Title }}</h1>
-    {{- with .Params.dek -}}<p class="project-dek">{{ . }}</p>{{- end -}}
-    {{- with .Params.links -}}
-      <div class="project-links">
-        {{- range . -}}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }} <span aria-hidden="true">↗</span></a>{{- end -}}
-      </div>
     {{- end -}}
   </div>
 </header>

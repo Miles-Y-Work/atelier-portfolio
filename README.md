@@ -43,21 +43,25 @@ Voices 和 Passion 的中间页分别由 `content/selected-work/_index.md` 和 `
 
 ## 统一字号
 
-全站字号由 `themes/atelier-portfolio/assets/css/main.css` 顶部的 `--type-*` 变量管理，同级文字共用同一变量，页面中不再单独设置字号。
+全站字号由 `themes/atelier-portfolio/assets/css/main.css` 顶部的 `--type-*` 变量管理，同级文字共用同一变量。字号参考 [ArthurChiao 的文章页](https://arthurchiao.art/blog/when-ai-amplifies-the-upstream/)：正文 16px，二级标题为正文的 1.5 倍，三级标题为 1.3 倍；正文与章节字号在桌面和手机上保持一致。页面主标题沿用作品集的大字号，桌面 56px、手机 36px，比最初版本略小一档。现有字体和配色保持不变。
 
 | 用途 | 桌面端 | 手机端（宽度 ≤ 760px） |
 | --- | --- | --- |
-| 页面标题 | 64px | 40px |
-| 章节标题 | 36px | 28px |
-| 条目标题、引文 | 28px | 22px |
-| 摘要、引导语 | 24px | 20px |
-| 正文、介绍段落 | 18px | 16px |
+| 页面标题 | 56px | 36px |
+| 章节标题 | 24px | 24px |
+| 条目标题、引文 | 20.8px | 20.8px |
+| 摘要、引导语 | 20px | 20px |
+| 正文、介绍段落 | 16px | 16px |
 | 导航、辅助说明 | 14px | 14px |
 | 标签、图片说明 | 12px | 12px |
 
 首页姓名、品牌标识、菜单和图标另有对应变量。长标题保持与其他页面标题相同的字号，通过自然换行适应宽度。
 
 斜体 `em` / `i` 继承周围文字的颜色和字号，仅用倾斜字形表示强调，不额外添加强调色。
+
+Voices 详情页统一使用 `--article-width: 760px`：首图、标题、奖项与赛事资料、正文共用同一组左右边界；手机端保留两侧 18px 留白。Speech 与 Debate 的首图统一为 16:10 横版比例，Debate 单独设置裁切焦点以保留人物。Writing 不展示天空首图。
+
+导航、下拉菜单、手机菜单和页脚共用 `--chrome-paper`（奶油色）与 `--chrome-ink`（暖棕色）。内容章节间距使用 `--space-section`，避免重复叠加大段留白。About 照片最大宽度为 360px，手机端为 300px，与文字分别占位。
 
 ## 替换图片
 
