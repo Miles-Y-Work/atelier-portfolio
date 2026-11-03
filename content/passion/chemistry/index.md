@@ -52,9 +52,12 @@ title = "Making structure visible"
 imageSize = "compact"
 body = """For our poster, I was responsible for the ball-and-stick models. I built models of our ester molecules, checking every bond and atom against our Lewis structures.
 
+The balls represent atoms, while the sticks show the bonds connecting them. A three-dimensional model makes these connections easier to follow than a flat drawing alone. On our poster, the models linked the chemical structures to the ester samples described in our experiment.
+
 The models gave us a visual way to explain molecular structure alongside our experimental results."""
 photos = [
-  { src = "chemistry-notion-04.jpg", alt = "Mia building ball-and-stick molecular models beside her notes and poster materials", caption = "Checking every bond and atom against our Lewis structures" },
+  { src = "chemistry-notion-04.jpg", alt = "Mia building ball-and-stick molecular models beside her notes and poster materials" },
+  { src = "chemistry-notion-06.jpg", alt = "Our completed group poster with experimental notes and molecular models", caption = "Our molecular models and experimental results on the group poster" },
 ]
 
 [[chapters]]
@@ -77,7 +80,6 @@ body = """The experiments helped me remember what I had learned and made me more
 
 Next time, I want to design the experiment myself."""
 photos = [
-  { src = "chemistry-notion-06.jpg", alt = "Our completed group poster with experimental notes and molecular models" },
   { src = "chemistry-notion-07.jpg", alt = "Mia presenting the group's work to an instructor with classmates nearby", caption = "Sharing our work and explaining the experiment" },
   { src = "chemistry-notion-08.jpg", alt = "Students and instructors together at the summer program", caption = "Chemistry of Medicine · Shanghai, summer 2026" },
 ]

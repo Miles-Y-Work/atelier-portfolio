@@ -1,0 +1,4 @@
+<header class="chemistry-chapter-heading">
+  <p class="chemistry-chapter-number">{{ printf "%02d" (add .index 1) }} / {{ .chapter.label }}</p>
+  <h2 id="chemistry-chapter-{{ .index }}">{{ .chapter.title }}</h2>
+</header>

@@ -45,17 +45,16 @@
         <p>A few moments from practice and play.</p>
       </div>
       <div class="tennis-gallery-feature">
-        <button class="violin-photo-button" type="button" data-gallery-open="tennis-gallery" aria-label="View {{ len . }} tennis photos">
-          <span class="violin-photo-stack" aria-hidden="true">
-            {{ range first 3 . }}
-              <span class="violin-photo-layer">
-                {{ partial "media.html" (dict "page" $ "src" . "alt" "" "class" "violin-stack-image" "sizes" "(max-width: 760px) 75vw, 480px") }}
+        <button class="violin-photo-button tennis-collage" type="button" data-gallery-open="tennis-gallery" aria-label="View {{ len . }} tennis photos">
+          <span class="tennis-moment-grid" aria-hidden="true">
+            {{ range $.Params.galleryHighlights }}
+              <span class="tennis-moment">
+                {{ partial "media.html" (dict "page" $ "src" . "alt" "" "class" "tennis-moment-image" "sizes" "(max-width: 760px) 85vw, 400px") }}
               </span>
             {{ end }}
           </span>
           <span class="violin-photo-cta">View gallery <span aria-hidden="true">↗</span> <small>{{ len . }} photos</small></span>
         </button>
-        <p>After every point, there is another ball to meet.</p>
       </div>
     </section>
 

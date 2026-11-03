@@ -14,14 +14,12 @@ gallery = []
 [[meta]]
 label = "Tournament"
 value = "2025 Spring NHSDLC Hangzhou Regional Speech & Debate Tournament"
+url = "https://www.nhsdlc.com/blog/2025-nhsdlc-spring-hangzhou-regional-tournament"
 
 [[meta]]
 label = "Format"
 value = "Public Forum · Middle School Novice"
 
-[[links]]
-label = "Tournament page"
-url = "https://www.nhsdlc.com/blog/2025-nhsdlc-spring-hangzhou-regional-tournament"
 +++
 
 I entered my first Public Forum tournament in fifth grade. The resolution asked whether expanding access to human gene editing technologies would do more good than harm. At first, it sounded like a question about science. As my partner and I prepared, I began to see that it was also a question about fairness, risk, and responsibility.

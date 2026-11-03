@@ -9,13 +9,11 @@
   </header>
   <div class="chemistry-chapters site-shell">
     {{ range $index, $chapter := .Params.chapters }}
-      <section class="chemistry-chapter{{ if or (eq $index 0) (eq $index 2) }} chemistry-chapter--heading-aligned{{ end }}{{ if modBool $index 2 }} chemistry-chapter--image-right{{ end }}{{ if eq (len .photos) 3 }} chemistry-chapter--gallery{{ end }}{{ with .imageSize }} chemistry-chapter--{{ . }}{{ end }}" aria-labelledby="chemistry-chapter-{{ $index }}">
-        <header class="chemistry-chapter-heading">
-          <p class="chemistry-chapter-number">{{ printf "%02d" (add $index 1) }} / {{ .label }}</p>
-          <h2 id="chemistry-chapter-{{ $index }}">{{ if eq $index 0 }}<span class="chemistry-intro-title-line">From formulas</span> <span class="chemistry-intro-title-line">to experiments</span>{{ else }}{{ .title }}{{ end }}</h2>
-        </header>
+      <section class="chemistry-chapter{{ if eq $index 1 }} chemistry-chapter--title-right{{ end }}{{ if modBool $index 2 }} chemistry-chapter--image-right{{ end }}{{ if eq $index 4 }} chemistry-chapter--gallery{{ end }}{{ with .imageSize }} chemistry-chapter--{{ . }}{{ end }}" aria-labelledby="chemistry-chapter-{{ $index }}">
+        {{ if gt $index 2 }}{{ partial "passion/chemistry-heading.html" (dict "index" $index "chapter" $chapter) }}{{ end }}
         <div class="chemistry-chapter-body">
         <div class="chemistry-chapter-copy">
+          {{ if le $index 2 }}{{ partial "passion/chemistry-heading.html" (dict "index" $index "chapter" $chapter) }}{{ end }}
           <div class="chemistry-prose">{{ .body | markdownify }}</div>
           {{ with .metricValue }}<p class="passion-metric"><strong>{{ . }}</strong><span>{{ $chapter.metricLabel }}</span></p>{{ end }}
         </div>

@@ -2782,9 +2782,9 @@ a.project-recognition-item:focus-visible small {
 
 .reading-opening {
   display: grid;
-  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
   gap: 32px;
-  align-items: center;
+  align-items: start;
   padding-top: 56px;
 }
 
@@ -2807,6 +2807,9 @@ a.project-recognition-item:focus-visible small {
 }
 
 .reading-hero--books {
+  width: 100%;
+  max-width: 528px;
+  justify-self: end;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: end;
@@ -2825,8 +2828,8 @@ a.project-recognition-item:focus-visible small {
 }
 
 .reading-book-cover {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 180px;
   aspect-ratio: 2 / 3;
   max-width: 100%;
   object-fit: contain;
@@ -2855,7 +2858,24 @@ a.project-recognition-item:focus-visible small {
 }
 
 .reading-introduction-text p {
+  position: relative;
   margin: 0;
+  padding: 28px;
+  background: #eddcd6;
+  border-top: 14px solid rgba(137, 92, 72, 0.07);
+  box-shadow: 0 6px 12px rgba(62, 43, 35, 0.07);
+}
+
+.reading-introduction-text p:nth-child(2) { background: #e8d7d1; }
+
+.reading-introduction-text p::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: calc(50% - 28px);
+  width: 56px;
+  height: 20px;
+  background: rgba(244, 234, 211, 0.65);
 }
 
 .reading-section-heading {
@@ -2888,7 +2908,7 @@ a.project-recognition-item:focus-visible small {
 
 .reading-essay summary {
   display: grid;
-  grid-template-columns: 88px minmax(0, 1fr) 32px;
+  grid-template-columns: 88px minmax(0, 1fr) auto;
   gap: 24px;
   align-items: center;
   padding: 28px 0;
@@ -3021,9 +3041,9 @@ a.project-recognition-item:focus-visible small {
     gap: 28px;
   }
 
-  .reading-hero--books {
-    gap: 12px;
-  }
+  .reading-hero--books { gap: 12px; justify-self: start; }
+  .reading-book-cover { height: auto; width: 100%; max-height: 180px; }
+  .reading-introduction-text p { padding: 22px; }
 
   .reading-introduction {
     padding-block: 32px;
@@ -3767,7 +3787,7 @@ a.project-recognition-item:focus-visible small {
 
 /* Chemistry: chapters follow the source material and its image sequence. */
 .chemistry-opening {
-  padding-block: var(--space-page) 64px;
+  padding-block: var(--space-page) 0;
 }
 
 .chemistry-opening h1 {
@@ -3792,31 +3812,32 @@ a.project-recognition-item:focus-visible small {
 
 .chemistry-opening .passion-facts {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin-top: 48px;
+  margin-top: 32px;
+  padding-block: 22px;
 }
 
 .chemistry-chapters {
-  padding-bottom: 64px;
+  padding-bottom: 32px;
 }
 
 .chemistry-chapter {
-  padding-top: 48px;
+  padding-top: 28px;
   border-top: 1px solid var(--rule);
 }
 
 .chemistry-chapter-heading {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .chemistry-chapter-body {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: start;
-  gap: clamp(36px, 5vw, 64px);
+  gap: 32px;
 }
 
 .chemistry-chapter + .chemistry-chapter {
-  margin-top: 64px;
+  margin-top: 28px;
 }
 
 .chemistry-chapter-copy {
@@ -3829,11 +3850,10 @@ a.project-recognition-item:focus-visible small {
   grid-row: 1;
   min-width: 0;
   width: 100%;
-  max-width: 360px;
-  justify-self: center;
+  max-width: none;
+  justify-self: start;
 }
 
-.chemistry-chapter--compact .chemistry-gallery { max-width: 280px; }
 .chemistry-chapter--wide-image .chemistry-gallery { max-width: none; }
 
 .chemistry-chapter--image-right .chemistry-chapter-copy {
@@ -3842,7 +3862,9 @@ a.project-recognition-item:focus-visible small {
 
 .chemistry-chapter--image-right .chemistry-gallery {
   grid-column: 2;
+  justify-self: end;
 }
+
 
 .chemistry-chapter-number {
   margin: 0 0 14px;
@@ -3860,15 +3882,16 @@ a.project-recognition-item:focus-visible small {
   font-weight: 400;
   letter-spacing: -0.04em;
   line-height: 1.08;
-  white-space: nowrap;
+  white-space: normal;
 }
 
 .chemistry-prose {
   color: var(--ink-soft);
   font-size: var(--type-body);
-  line-height: 1.85;
+  line-height: 1.7;
 }
 
+.chemistry-prose p { margin: 0 0 18px; }
 .chemistry-prose p:first-child { margin-top: 0; }
 .chemistry-prose p:last-child { margin-bottom: 0; }
 .chemistry-prose em { color: inherit; }
@@ -3882,11 +3905,11 @@ a.project-recognition-item:focus-visible small {
   line-height: 1.6;
 }
 
-.chemistry-gallery--2 .chemistry-photo--1 { width: 58%; }
+.chemistry-gallery--2 .chemistry-photo--1 { width: 52%; margin-left: -12px; }
 .chemistry-gallery--2 .chemistry-photo--2 {
   position: relative;
-  width: 68%;
-  margin: -8% 0 0 auto;
+  width: 64%;
+  margin: -22% 0 0 auto;
 }
 
 .chemistry-chapter--gallery .chemistry-chapter-body {
@@ -3903,7 +3926,7 @@ a.project-recognition-item:focus-visible small {
   align-items: start;
   gap: 24px;
   max-width: none;
-  margin-top: 36px;
+  margin-top: 24px;
 }
 
 .chemistry-gallery--3 .chemistry-image {
@@ -3911,42 +3934,22 @@ a.project-recognition-item:focus-visible small {
   object-fit: contain;
 }
 
-.chemistry-intro-title-line { display: block; white-space: nowrap; }
-
-.chemistry-chapter--heading-aligned {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px clamp(36px, 5vw, 64px);
-  align-items: start;
-}
-
-.chemistry-chapter--heading-aligned .chemistry-chapter-heading {
-  grid-column: 1;
-  grid-row: 1;
-  margin-bottom: 0;
-}
-
-.chemistry-chapter--heading-aligned h2 { white-space: normal; }
-.chemistry-chapter--heading-aligned.chemistry-chapter--compact .chemistry-gallery { max-width: 280px; }
-.chemistry-chapter--heading-aligned .chemistry-chapter-body { display: contents; }
-.chemistry-chapter--heading-aligned .chemistry-chapter-copy { grid-column: 1; grid-row: 2; }
-.chemistry-chapter--heading-aligned .chemistry-gallery { grid-column: 2; grid-row: 1 / span 2; max-width: 380px; }
-
 @media (max-width: 760px) {
-  .chemistry-opening { padding-block: 48px; }
+  .chemistry-opening { padding-block: 40px 0; }
   .chemistry-opening .passion-facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
-  .chemistry-chapter { padding-top: 36px; }
-  .chemistry-chapter-heading { margin-bottom: 24px; }
+  .chemistry-chapter { padding-top: 24px; }
+  .chemistry-chapter-heading { margin-bottom: 18px; }
   .chemistry-chapter-body { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .chemistry-chapter .chemistry-chapter-copy { grid-column: 1; grid-row: 1; }
   .chemistry-chapter .chemistry-gallery { grid-column: 1; grid-row: 2; }
   .chemistry-chapter h2 { font-size: var(--type-section); white-space: normal; }
-  .chemistry-chapter + .chemistry-chapter { margin-top: 48px; }
+  .chemistry-chapter + .chemistry-chapter { margin-top: 24px; }
   .chemistry-gallery--3 { grid-template-columns: minmax(0, 1fr); max-width: 420px; margin-inline: auto; gap: 24px; }
-  .chemistry-chapter--heading-aligned { grid-template-columns: minmax(0, 1fr); }
-  .chemistry-chapter--heading-aligned .chemistry-chapter-copy { grid-row: 2; }
-  .chemistry-chapter--heading-aligned .chemistry-gallery { grid-column: 1; grid-row: 3; max-width: 340px; }
+  .chemistry-chapter--image-right .chemistry-gallery { justify-self: end; }
 }
+
+.chemistry-story .project-nav { margin-top: 0; }
+.chemistry-story .passion-story-navigation { padding-bottom: 32px; }
 
 /* Deep green navigation, including dropdowns and the mobile menu. */
 .site-header,
@@ -4033,4 +4036,149 @@ a.project-recognition-item:focus-visible small {
   .project-recognition-item { padding-inline: 0; }
   .project-hero figcaption { width: 100%; }
   .portrait-frame { width: min(100%, 300px); }
+}
+
+/* Project metadata follows Writing's horizontal information panels. */
+.project-facts--columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-block: 1px solid var(--rule);
+}
+.project-facts--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.project-facts--columns > div {
+  display: block;
+  padding: 24px;
+  border: 0;
+  border-right: 1px solid var(--rule);
+}
+.project-facts--columns > div:first-child { padding-left: 0; }
+.project-facts--columns > div:last-child { padding-right: 0; border: 0; }
+.project-facts--columns dt {
+  color: var(--ink-muted);
+  font-weight: 700;
+  font-size: var(--type-label);
+  letter-spacing: 0.14em;
+}
+.project-facts--columns dd {
+  margin-top: 17px;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: var(--type-small);
+  line-height: 1.55;
+}
+@media (max-width: 600px) {
+  .project-facts--columns { grid-template-columns: 1fr; }
+  .project-facts--columns > div { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--rule); }
+  .project-facts--columns dd { margin-top: 8px; }
+}
+
+/* A clear title/year hierarchy without an empty band before the first year. */
+.violin-story .violin-timeline-heading { padding-bottom: 20px; }
+.violin-story .violin-timeline-heading h2 { font-size: 2rem; font-weight: 400; }
+.violin-story .violin-year { font-size: 1.75rem; font-weight: 400; margin-top: 32px; }
+.violin-story .violin-timeline-heading + .violin-year { margin-top: 8px; }
+
+.tennis-story .tennis-results { padding-bottom: 0; }
+.tennis-court .tennis-section-heading { border-top: 0; padding-block: 28px 24px; }
+.tennis-story .tennis-gallery-feature { display: block; padding: 0 10px 20px; }
+.tennis-collage { width: 100%; }
+.tennis-moment-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.75fr) repeat(2, minmax(0, 1.2fr));
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 28px;
+}
+.tennis-moment {
+  display: block;
+  border: 6px solid #faf7f1;
+  box-shadow: 0 8px 18px rgba(37, 33, 29, 0.16);
+  transform: rotate(-3deg);
+}
+.tennis-moment:nth-child(2) { transform: translateY(20px) rotate(2deg); }
+.tennis-moment:nth-child(3) { transform: translateY(-8px) rotate(-2deg); }
+.tennis-moment-image { display: block; width: 100%; height: auto; }
+@media (max-width: 760px) {
+  .tennis-moment-grid { grid-template-columns: 1fr; gap: 24px; max-width: 460px; margin-inline: auto; }
+  .tennis-moment { width: 88%; }
+  .tennis-moment:first-child { width: 60%; }
+  .tennis-moment:nth-child(2) { justify-self: end; transform: rotate(2deg); }
+  .tennis-moment:nth-child(3) { transform: rotate(-2deg); }
+}
+
+/* Chemistry uses one visible gutter and consistent outer alignment throughout. */
+.chemistry-opening,
+.chemistry-chapters,
+.chemistry-story .passion-story-navigation { max-width: 1040px; }
+.chemistry-chapter { --chemistry-media-width: 42%; }
+.chemistry-chapter-body {
+  grid-template-columns: minmax(0, var(--chemistry-media-width)) minmax(0, 1fr);
+  gap: 48px;
+}
+.chemistry-chapter--image-right .chemistry-chapter-body {
+  grid-template-columns: minmax(0, 1fr) minmax(0, var(--chemistry-media-width));
+}
+.chemistry-chapter--gallery .chemistry-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+  margin-top: 24px;
+}
+.chemistry-chapter--gallery .chemistry-photo { width: 100%; margin: 0; }
+@media (max-width: 900px) and (min-width: 761px) {
+  .chemistry-chapter-body { gap: 36px; }
+}
+@media (max-width: 760px) {
+  .chemistry-chapter .chemistry-chapter-body { grid-template-columns: 1fr; gap: 24px; }
+  .chemistry-gallery { max-width: 360px; }
+  .chemistry-chapter--gallery .chemistry-gallery { max-width: none; }
+}
+
+.chemistry-chapter--title-right .chemistry-chapter-heading { text-align: right; }
+
+.chemistry-opening .passion-facts { gap: 0; padding-block: 0; }
+.chemistry-opening .passion-facts > div { padding: 22px; border-right: 1px solid var(--rule); }
+.chemistry-opening .passion-facts > div:first-child { padding-left: 0; }
+.chemistry-opening .passion-facts > div:last-child { padding-right: 0; border-right: 0; }
+@media (max-width: 760px) {
+  .chemistry-opening .passion-facts > div { padding: 18px; }
+  .chemistry-opening .passion-facts > div:nth-child(odd) { padding-left: 0; }
+  .chemistry-opening .passion-facts > div:nth-child(even) { padding-right: 0; border-right: 0; }
+  .chemistry-opening .passion-facts > div:nth-child(n+3) { border-top: 1px solid var(--rule); }
+}
+
+.chemistry-chapter--title-right .chemistry-image {
+  aspect-ratio: 10 / 11;
+  object-fit: cover;
+  object-position: 50% 38%;
+}
+
+@media (max-width: 760px) {
+  .chemistry-gallery--2 .chemistry-photo--1 { margin-left: 0; }
+}
+
+.tennis-result strong { font-size: 1.125rem; line-height: 1.4; }
+
+.project-masthead + .project-story { border-top: 0; margin-top: 0; padding-top: 28px; }
+.project-facts--columns dd a { text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 4px; }
+.project-facts--columns dd a:hover { color: var(--accent); }
+
+.reading-essay-action { display: flex; align-items: center; gap: 16px; }
+.reading-essay-cue { color: var(--ink-muted); font-family: var(--sans); font-size: var(--type-small); white-space: nowrap; }
+.reading-cue-close { display: none; }
+.reading-essay[open] .reading-cue-open { display: none; }
+.reading-essay[open] .reading-cue-close { display: inline; }
+.violin-event--year-end { border-bottom: 0; }
+.violin-story .violin-timeline { padding-bottom: 16px; }
+.violin-story .project-nav { margin-top: 16px; }
+.violin-story .passion-story-navigation { padding-bottom: 48px; }
+.chemistry-chapter--title-right .chemistry-gallery { width: 86%; max-width: 360px; justify-self: center; }
+@media (max-width: 760px) {
+  .reading-essay-action { grid-column: 2; grid-row: 1 / 3; gap: 8px; }
+  .reading-essay-cue { font-size: var(--type-label); }
+}
+
+@media (max-width: 760px) {
+  .reading-essay summary { grid-template-columns: minmax(0, 1fr) auto; }
 }

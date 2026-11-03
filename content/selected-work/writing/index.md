@@ -21,6 +21,12 @@ value = "Social Justice Awards"
 detail = "Social Justice Watcher"
 url = "https://www.socialjusticewatcher.org/competition-2025-fall"
 
+[[recognition]]
+label = "Winning Essay"
+value = "Read the Essay ↗"
+detail = "Published on Social Justice Watcher"
+url = "https://www.socialjusticewatcher.org/blog/half-the-sky-half-the-care-gender-and-class-intersectionality-at-the-heart?categoryId=287104"
+
 +++
 
 The essay asks how gender, income, and social circumstances interact to affect the care women receive. I use the idea of intersectionality to explore how these factors overlap and create different barriers for different women.

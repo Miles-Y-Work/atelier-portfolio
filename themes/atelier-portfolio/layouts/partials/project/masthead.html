@@ -11,11 +11,11 @@
   </div>
   <div class="project-masthead-meta">
     {{- with .Params.meta -}}
-      <dl class="project-facts">
+      <dl class="project-facts project-facts--columns project-facts--{{ len . }}">
         {{- range . -}}
           <div>
             <dt>{{ .label }}</dt>
-            <dd>{{ .value }}</dd>
+            <dd>{{ if .url }}<a href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .value }} <span aria-hidden="true">↗</span></a>{{ else }}{{ .value }}{{ end }}</dd>
           </div>
         {{- end -}}
       </dl>

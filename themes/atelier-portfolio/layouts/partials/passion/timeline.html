@@ -25,7 +25,7 @@
   <section class="violin-timeline site-shell" aria-labelledby="violin-timeline-title">
     <div class="violin-timeline-heading">
       <p class="violin-section-label">On stage &amp; beyond</p>
-      <h2 id="violin-timeline-title">A musical timeline</h2>
+      <h2 id="violin-timeline-title">Timeline</h2>
       <p>Performances, competitions and milestones, year by year.</p>
     </div>
 
@@ -35,7 +35,12 @@
         <h3 class="violin-year">{{ $event.year }}</h3>
         {{ $lastYear = $event.year }}
       {{ end }}
-      <div class="violin-event{{ if not $event.photos }} violin-event--plain{{ end }}">
+      {{ $lastInYear := true }}
+      {{ if lt (add $index 1) (len $.Params.timelineEvents) }}
+        {{ $next := index $.Params.timelineEvents (add $index 1) }}
+        {{ $lastInYear = ne $event.year $next.year }}
+      {{ end }}
+      <div class="violin-event{{ if not $event.photos }} violin-event--plain{{ end }}{{ if $lastInYear }} violin-event--year-end{{ end }}">
         <div class="violin-event-media">
           {{ if $event.photos }}
             <button class="violin-photo-button" type="button" data-gallery-open="violin-gallery-{{ $index }}" aria-label="View {{ len $event.photos }} {{ if eq (len $event.photos) 1 }}photo{{ else }}photos{{ end }} from {{ $event.title }}">

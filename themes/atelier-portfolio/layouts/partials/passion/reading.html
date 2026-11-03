@@ -34,7 +34,10 @@
           <summary>
             <span class="reading-essay-label">{{ .label }}</span>
             <span class="reading-essay-title">{{ .title }}</span>
-            <span class="reading-essay-toggle" aria-hidden="true">+</span>
+            <span class="reading-essay-action">
+              <span class="reading-essay-cue"><span class="reading-cue-open">Click to read</span><span class="reading-cue-close">Click to close</span></span>
+              <span class="reading-essay-toggle" aria-hidden="true">+</span>
+            </span>
           </summary>
           <div class="reading-essay-content">
             <div class="reading-essay-prose">{{ .body | markdownify }}</div>
