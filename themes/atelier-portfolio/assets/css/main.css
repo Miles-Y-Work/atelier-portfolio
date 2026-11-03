@@ -2638,8 +2638,7 @@ a.project-recognition-item:focus-visible small {
   object-position: 50% 44%;
 }
 
-.tennis-introduction,
-.reading-introduction {
+.tennis-introduction {
   display: grid;
   grid-template-columns: minmax(0, 0.3fr) minmax(0, 0.7fr);
   gap: 58px;
@@ -2778,10 +2777,10 @@ a.project-recognition-item:focus-visible small {
 
 .reading-opening {
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
-  gap: 40px;
+  grid-template-columns: minmax(0, 0.65fr) minmax(0, 1.35fr);
+  gap: 32px;
   align-items: center;
-  padding-top: 72px;
+  padding-top: 56px;
 }
 
 .reading-opening-copy h1 {
@@ -2804,11 +2803,12 @@ a.project-recognition-item:focus-visible small {
 
 .reading-hero--books {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 18px 22px;
-  padding: 22px;
-  background: #eae4d8;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: end;
+  gap: 16px;
+  aspect-ratio: auto;
+  overflow: visible;
+  background: transparent;
 }
 
 .reading-book {
@@ -2820,8 +2820,9 @@ a.project-recognition-item:focus-visible small {
 }
 
 .reading-book-cover {
-  width: auto;
-  height: 100%;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
   max-width: 100%;
   object-fit: contain;
   box-shadow: 3px 5px 12px rgba(37, 33, 29, 0.15);
@@ -2832,14 +2833,44 @@ a.project-recognition-item:focus-visible small {
   outline-offset: 4px;
 }
 
+.reading-opening-copy > p:last-child {
+  margin-bottom: 0;
+}
+
 .reading-introduction {
-  display: block;
-  padding-top: 64px;
-  padding-bottom: 80px;
+  padding-block: 40px 48px;
 }
 
 .reading-introduction-text {
-  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  max-width: none;
+  margin: 0;
+}
+
+.reading-introduction-text p {
+  margin: 0;
+}
+
+.reading-section-heading {
+  padding-block: 28px;
+}
+
+.reading-section-heading h2 {
+  margin: 0;
+}
+
+.reading-reflections {
+  padding-bottom: 0;
+}
+
+.reading-story .project-nav {
+  margin-top: 48px;
+}
+
+.reading-story .passion-story-navigation {
+  padding-bottom: 48px;
 }
 
 .reading-essay-list {
@@ -2852,8 +2883,8 @@ a.project-recognition-item:focus-visible small {
 
 .reading-essay summary {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr) 38px;
-  gap: 32px;
+  grid-template-columns: 88px minmax(0, 1fr) 32px;
+  gap: 24px;
   align-items: center;
   padding: 28px 0;
   cursor: pointer;
@@ -2899,7 +2930,7 @@ a.project-recognition-item:focus-visible small {
 
 .reading-essay-content {
   max-width: 850px;
-  margin-left: 192px;
+  margin-left: 112px;
   padding: 0 0 54px;
 }
 
@@ -2924,6 +2955,13 @@ a.project-recognition-item:focus-visible small {
   border-bottom: 1px solid currentColor;
   font-size: var(--type-small);
   font-weight: 700;
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+  .reading-opening {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -2975,7 +3013,32 @@ a.project-recognition-item:focus-visible small {
 
   .reading-opening {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 28px;
+  }
+
+  .reading-hero--books {
+    gap: 12px;
+  }
+
+  .reading-introduction {
+    padding-block: 32px;
+  }
+
+  .reading-introduction-text {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .reading-section-heading {
+    padding-block: 24px;
+  }
+
+  .reading-story .project-nav {
+    margin-top: 32px;
+  }
+
+  .reading-story .passion-story-navigation {
+    padding-bottom: 32px;
   }
 
   .reading-opening-copy h1 {

@@ -9,7 +9,7 @@
     <figure class="reading-hero reading-hero--books" aria-label="Books Mia has read">
       {{ range .Params.bookCovers }}
         <a class="reading-book" href="{{ .source }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .title }} — Penguin Clothbound Classics">
-          {{ partial "media.html" (dict "page" $ "src" .src "alt" (printf "%s — published Penguin Clothbound Classics cover, ISBN %s" .title .isbn) "class" "reading-book-cover" "loading" "eager" "sizes" "(max-width: 760px) 34vw, 180px") }}
+          {{ partial "media.html" (dict "page" $ "src" .src "alt" (printf "%s — published Penguin Clothbound Classics cover, ISBN %s" .title .isbn) "class" "reading-book-cover" "loading" "eager" "sizes" "(max-width: 1000px) 22vw, (max-width: 1208px) 15vw, 176px") }}
         </a>
       {{ end }}
     </figure>
