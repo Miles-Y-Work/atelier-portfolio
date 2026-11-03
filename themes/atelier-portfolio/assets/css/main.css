@@ -1,12 +1,15 @@
 :root {
   --black: #050505;
+  --frame-ink: #3b4437;
   --white: #f8f7f3;
   --muted: #b8b8b6;
   --line: rgba(255, 255, 255, 0.78);
   --shell: 1144px;
   --article-width: 760px;
-  --chrome-paper: #eae3d8;
-  --chrome-ink: #483c32;
+  --chrome-paper: var(--frame-ink);
+  --chrome-ink: var(--white);
+  --chrome-muted: #c8cdc2;
+  --chrome-accent: #d7bb86;
   --header-height: 88px;
   --footer-height: 72px;
   --serif: Georgia, "Times New Roman", "Noto Serif SC", serif;
@@ -143,7 +146,7 @@ textarea {
   z-index: 20;
   flex: 0 0 auto;
   min-height: var(--header-height);
-  background: var(--black);
+  background: var(--frame-ink);
 }
 
 .header-inner {
@@ -164,7 +167,7 @@ textarea {
 
 .site-mark:hover,
 .site-mark:focus-visible {
-  color: var(--accent);
+  color: var(--chrome-accent);
   text-decoration: none;
 }
 
@@ -203,7 +206,7 @@ textarea {
 .site-nav > ul > li > a:hover,
 .site-nav > ul > li.uk-active > a {
   color: var(--white);
-  background: var(--black);
+  background: var(--frame-ink);
 }
 
 .site-nav a.is-active {
@@ -242,7 +245,7 @@ textarea {
 
 .site-nav .nav-trigger:hover,
 .site-nav .nav-trigger[aria-expanded="true"] {
-  background: var(--black);
+  background: var(--frame-ink);
 }
 
 .submenu-chevron {
@@ -266,7 +269,7 @@ textarea {
   padding: 14px;
   border: 0;
   border-radius: 0;
-  background: var(--black);
+  background: var(--frame-ink);
   box-shadow: none;
 }
 
@@ -283,7 +286,7 @@ textarea {
 .site-nav .nav-popover .uk-nav > li > a:focus-visible,
 .site-nav .nav-popover .uk-nav > li > a.is-active {
   color: var(--white);
-  background: var(--black);
+  background: var(--frame-ink);
 }
 
 .site-nav .nav-popover a:focus-visible {
@@ -307,7 +310,7 @@ textarea {
   min-height: var(--footer-height);
   display: flex;
   align-items: center;
-  background: var(--black);
+  background: var(--frame-ink);
 }
 
 .footer-inner {
@@ -1627,7 +1630,7 @@ a.project-recognition-item:focus-visible small {
     overflow-y: auto;
     overscroll-behavior: contain;
     padding: calc(var(--header-height) + 24px) 32px 40px;
-    background: var(--black);
+    background: var(--frame-ink);
   }
 
   .mobile-menu-panel > ul {
@@ -3945,7 +3948,7 @@ a.project-recognition-item:focus-visible small {
   .chemistry-chapter--heading-aligned .chemistry-gallery { grid-column: 1; grid-row: 3; max-width: 340px; }
 }
 
-/* Warm paper navigation, including dropdowns and the mobile menu. */
+/* Deep green navigation, including dropdowns and the mobile menu. */
 .site-header,
 .site-footer,
 .site-nav .nav-popover,
@@ -3956,7 +3959,7 @@ a.project-recognition-item:focus-visible small {
 
 .site-header { border-bottom: 1px solid var(--rule); }
 .site-footer { border-top: 1px solid var(--rule); }
-.site-footer p { color: var(--ink-muted); }
+.site-footer p { color: var(--chrome-muted); }
 .site-mark { color: var(--chrome-ink); }
 
 .site-nav a,
@@ -3964,7 +3967,7 @@ a.project-recognition-item:focus-visible small {
 .nav-dropdown summary,
 .site-nav .nav-popover .uk-nav > li > a,
 .mobile-menu-panel a {
-  color: var(--ink-muted);
+  color: var(--chrome-muted);
 }
 
 .site-nav > ul > li > a:hover,
@@ -3981,18 +3984,18 @@ a.project-recognition-item:focus-visible small {
 .site-nav .nav-popover .uk-nav > li > a.is-active,
 .mobile-menu-panel a:hover,
 .mobile-menu-panel a.is-active {
-  color: var(--accent);
+  color: var(--chrome-accent);
   background: transparent;
 }
 
 .site-header a:focus-visible,
 .site-header summary:focus-visible,
 .site-header .nav-trigger:focus-visible {
-  outline-color: var(--accent);
+  outline-color: var(--chrome-accent);
 }
 
 .mobile-menu > summary > span { background: var(--chrome-ink); }
-.mobile-submenu { border-color: var(--rule); }
+.mobile-submenu { border-color: rgba(248, 247, 243, 0.22); }
 
 .project-masthead-copy .project-kicker { margin-bottom: 18px; }
 .project-facts { width: 100%; }
