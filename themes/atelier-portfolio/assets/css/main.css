@@ -3148,7 +3148,7 @@ a.project-recognition-item:focus-visible small {
 }
 
 .page-voices-index .collection-photos {
-  aspect-ratio: 1 / 0.87;
+  aspect-ratio: 1 / 0.94;
   padding-right: 12%;
 }
 
@@ -3157,7 +3157,7 @@ a.project-recognition-item:focus-visible small {
 }
 
 .page-voices-index .collection-photo-detail {
-  width: 74%;
+  width: 88%;
   aspect-ratio: 1668 / 943;
   border: 0;
 }
