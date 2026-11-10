@@ -1,4 +1,5 @@
 +++
+aliases = ["/selected-work/speaking-and-debate/"]
 title = "Learning to Argue Both Sides"
 cardTitle = "Debate"
 cardDetail = "Public Forum · NHSDLC 2025"

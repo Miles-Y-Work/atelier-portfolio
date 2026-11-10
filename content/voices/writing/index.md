@@ -1,4 +1,5 @@
 +++
+aliases = ["/selected-work/writing/"]
 title = "Half the Sky, Half the Care: Gender and Class Intersectionality at the Heart of Global Health Inequities"
 cardTitle = "Writing"
 weight = 10

@@ -1,0 +1,3 @@
+# Preserve old Voices page and image links.
+/selected-work /voices/ 301
+/selected-work/* /voices/:splat 301

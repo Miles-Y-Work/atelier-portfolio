@@ -29,8 +29,8 @@ disableKinds = ["taxonomy", "term", "RSS"]
 
 [[menus.main]]
   name = "Voices"
-  identifier = "selected-work"
-  pageRef = "/selected-work"
+  identifier = "voices"
+  pageRef = "/voices"
   weight = 10
 
 [[menus.main]]

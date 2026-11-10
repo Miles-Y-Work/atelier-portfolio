@@ -1,4 +1,5 @@
 +++
+aliases = ["/selected-work/synergize/"]
 title = "Learning to Synergize"
 cardTitle = "Community"
 cardDetail = "Student Sharing · 6th Coffee Morning"

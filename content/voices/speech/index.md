@@ -1,4 +1,5 @@
 +++
+aliases = ["/selected-work/speech/"]
 title = "The Mirror That Lies: Deepfakes and Society"
 cardTitle = "Speech"
 cardDetail = "Informative Speaking · BBGM 2025"

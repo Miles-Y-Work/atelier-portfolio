@@ -32,7 +32,7 @@ hugo --minify
 - `content/about/_index.md`
 - `content/contact/_index.md`
 
-Voices 和 Passion 的中间页分别由 `content/selected-work/_index.md` 和 `content/passion/_index.md` 配置。上半部分展示照片与介绍文字，下半部分为四个纯文字详情入口：
+Voices 和 Passion 的中间页分别由 `content/voices/_index.md` 和 `content/passion/_index.md` 配置。上半部分展示照片与介绍文字，下半部分为四个纯文字详情入口：
 
 - `eyebrow`、`intro`：标题上方的短语和介绍正文。
 - `[[introImages]]`：照片的 `src` 与 `alt`；填写 `page` 可复用该详情页中的图片。Voices 的第二张照片叠放在右下角；Passion 则将网球放在左下侧、小提琴放在右上侧，边缘错位重叠，避开人物主体。
@@ -78,7 +78,7 @@ content/
 ├── contact/
 │   ├── _index.md             # backgroundImage
 │   └── background.jpg
-└── selected-work/
+└── voices/
     └── writing/
         ├── index.md           # cover / gallery
         ├── cover.jpg
@@ -102,7 +102,7 @@ gallery = ["work-01.jpg", "work-02.jpg"]
 
 ## 添加新的作品系列
 
-复制任一 `content/selected-work/` 下的项目目录，修改文件夹名和 `index.md`：
+复制任一 `content/voices/` 下的项目目录，修改文件夹名和 `index.md`：
 
 ```toml
 +++

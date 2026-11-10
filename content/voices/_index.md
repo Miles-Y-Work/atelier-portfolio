@@ -1,4 +1,5 @@
 +++
+aliases = ["/selected-work/"]
 title = "Voices"
 description = "Writing, public speaking, debate, and community stories by Mia Jin."
 eyebrow = "Ideas · Expression · Connection"
